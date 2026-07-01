@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"/>
+<title>Phase 02 Define — Smart DT Project</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="css/smartdt.css" rel="stylesheet"/>
+<style>
+.info-img{width:100%;height:auto;border-radius:24px;border:1px solid var(--line);margin:14px 0;background:#fff;box-shadow:0 10px 22px rgba(8,43,102,.05);display:block}
+.img-fallback{display:none;background:#FFFCF5;border:1.5px solid #FFD8C8;border-radius:22px;padding:16px;margin:14px 0}
+.img-fallback h3{color:var(--navy)}
+</style>
+</head>
+<body data-page="learn" data-phase="02">
+<div class="app">
+<header class="header">
+<a class="brand" href="dashboard.html"><span aria-hidden="true" class="brand-logo brand-logo-inline"><img alt="" decoding="async" loading="lazy" src="https://iili.io/Cd3i8QV.png"/></span><span class="brand-text">Smart DT<br/>Project</span></a>
+<div class="header-actions"><span class="pill"><b style="color:var(--orange)">02</b> / 05</span><span class="pill lang-pill"><span class="pill-symbol" aria-hidden="true">🌐</span> EN</span><button aria-label="Menu" class="icon-btn menu-lines"><span></span><span></span><span></span></button></div>
+</header>
+<main class="page phase-page">
+<section class="hero-card compact"><img alt="Define phase header" src="https://iili.io/CdztNkb.png"/></section>
+<section class="intro-card"><p class="eyebrow">Phase 02 · Define</p><h1 class="intro-title">Turn empathy evidence into a <span class="teal">clear problem.</span></h1><p class="intro-text">In this phase, your team reviews research findings, identifies patterns, writes a user-centred problem statement and creates HMW questions before moving to Ideation.</p></section>
+<div class="tabbar" role="tablist"><button class="tab active" data-tab="quickInfo">Quick Info</button><button class="tab" data-tab="quizPanel">Quiz</button><button class="tab" data-tab="templatesPanel">Templates</button></div>
+<section class="panel active" id="quickInfo"><img class="info-img" src="infographic/phase02-define-infographic.png" alt="Phase 02 Define infographic" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="img-fallback"><h3>📊 Phase 02 Define Infographic</h3><p>The infographic image could not load. Refer to the sections below instead.</p></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">What is Define?</h2><p class="section-sub">Define is where your team makes sense of everything learned during Empathy. You analyse interviews, maps and personas to frame ONE clear problem statement that captures the real user need.</p></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">What students need to do</h2><ul class="list"><li>Review Empathy Map, Persona and User Needs Summary from Phase 01.</li><li>Identify repeated patterns across all interviews.</li><li>Write a Point of View statement using <b>[user] needs [need] because [insight]</b>.</li><li>Generate 5 How Might We questions to prepare for Ideation.</li><li>Submit for Supervisor Gate 1 before starting Phase 03.</li></ul></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">Common mistakes to avoid</h2><ul class="list"><li>Do not include the solution inside the problem statement.</li><li>Do not make the scope too broad or too narrow.</li><li>Do not jump straight into brainstorming before HMW.</li><li>Do not base the problem on assumptions. Use research evidence.</li></ul></div>
+<button class="btn primary full" onclick="document.querySelector('[data-tab=quizPanel]').click()">Start Quick Check Quiz</button>
+</section>
+<section class="panel" id="quizPanel"><div id="quizBox"></div></section>
+<section class="panel" id="templatesPanel">
+<h1 class="section-title phase-title"><span>Define</span><br/>Templates</h1>
+<p class="section-sub">Use the Define templates to convert Empathy evidence into a focused problem. The sequence is: review evidence → find patterns → write POV → define scope → generate HMW → submit Gate 1.</p>
+<div class="template-steps three">
+<div class="template-step"><span class="step-num">5</span><p>Problem Statement</p></div>
+<div class="template-step"><span class="step-num">6</span><p>How Might We</p></div>
+<div class="template-step"><span class="step-num">G1</span><p>Supervisor Gate</p></div>
+</div>
+<div class="subtabs define-three three">
+<button class="subtab active" data-subtab="t05">T05 Problem</button>
+<button class="subtab" data-subtab="t06">T06 HMW</button>
+<button class="subtab" data-subtab="gate1">Gate 1</button>
+</div>
+<form id="defineForm">
+<section class="template-panel active" id="t05">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head">
+      <div>
+        <h2>T05 User Persona</h2>
+        <p class="section-sub">Turn your Phase 01 evidence into one fictional character who represents your real users.</p>
+      </div>
+      <span class="status">Start Here</span>
+    </div>
+
+    <div class="template-guide-card">
+      <span class="guide-tag">Template Intro</span>
+      <h3>What is this template for?</h3>
+      <p>A persona is not a real person — it is a summary of the patterns you saw across your Empathy interviews and observations, given a name and a face so your team can design for a real need instead of a guess.</p>
+      <div class="guide-mini-grid">
+        <div><b>Input</b><span>Phase 01 evidence</span></div>
+        <div><b>Formula</b><span>Role + Goals + Frustrations</span></div>
+        <div><b>Output</b><span>One persona profile</span></div>
+      </div>
+      <a class="btn ghost full" href="guide/t05-persona-for-beginners.html" target="_blank" rel="noopener" style="margin-top:12px">Open T05 Full Guide</a>
+    </div>
+
+    <div class="activity-box enhanced">
+      <p class="activity-title"><span class="badge">A6</span>What students need to do</p>
+      <p class="bullet"><b>1. Review your evidence:</b> reread your T01–T04 notes, quotes and empathy map.</p>
+      <p class="bullet"><b>2. Find the pattern:</b> choose the most common type of user, not one unusual case.</p>
+      <p class="bullet"><b>3. Give them a name and role:</b> keep it realistic and specific to your project context.</p>
+      <p class="bullet"><b>4. List goals and frustrations:</b> base every line on real evidence, not assumption.</p>
+      <p class="bullet"><b>5. Add one quote:</b> use real or realistic words that capture their feeling.</p>
+    </div>
+
+    <div class="sample infographic-sample">
+      <h3>Persona Formula</h3>
+      <div class="flowline">
+        <div><span>1</span><b>Role</b><small>Who are they?</small></div>
+        <div><span>2</span><b>Goals</b><small>What do they want?</small></div>
+        <div><span>3</span><b>Frustrations</b><small>What blocks them?</small></div>
+      </div>
+    </div>
+
+    <div class="switch template-mode-switch">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Persona</span>
+        <h3>Aina, the First-Time Visitor</h3>
+        <div class="needs-preview">
+          <div><b>Role</b><p>A Diploma student visiting the batik workshop for the first time with her class.</p></div>
+          <div><b>Goals</b><p>Wants to try batik-making and enjoy the experience without feeling embarrassed.</p></div>
+          <div><b>Frustrations</b><p>Afraid of spoiling the cloth and unsure of the correct steps to follow.</p></div>
+        </div>
+        <div class="sample-tip"><b>Key quote:</b> "I was scared I'd spoil the cloth, so I just watched instead of trying."</div>
+        <div class="sample-tip"><b>Why this works:</b> Every line traces back to real T02/T03 interview evidence, not a guess about who the user might be.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer">
+        <div class="sample-answer-title">✍️ Fill guide</div>
+        <p>Base every field on your own Phase 01 evidence. Keep it specific to one realistic user, not a generic description.</p>
+      </div>
+
+      <div class="field">
+        <label>Persona Name &amp; Role</label>
+        <p class="field-help">Give your persona a name and short role description.</p>
+        <input class="input" name="df_p02_t05_name_role" placeholder="Example: Aina, first-time batik workshop visitor"/>
+      </div>
+      <div class="field">
+        <label>Background</label>
+        <p class="field-help">Age range, context, and how they encounter your project.</p>
+        <textarea class="textarea" name="df_p02_t05_background" placeholder="Example: 18-year-old Diploma student visiting during a class field trip."></textarea>
+      </div>
+      <div class="mini-row">
+        <div class="field">
+          <label>Goals</label>
+          <p class="field-help">What does this persona want to achieve?</p>
+          <textarea class="textarea" name="df_p02_t05_goals" placeholder="Example: wants to try batik-making and enjoy the experience"></textarea>
+        </div>
+        <div class="field">
+          <label>Frustrations</label>
+          <p class="field-help">What blocks or worries them?</p>
+          <textarea class="textarea" name="df_p02_t05_frustrations" placeholder="Example: afraid of spoiling the cloth, unsure of the steps"></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label>Key Quote</label>
+        <p class="field-help">A real or realistic line that captures how this persona feels.</p>
+        <textarea class="textarea" name="df_p02_t05_quote" placeholder="Example: I was scared I'd spoil the cloth, so I just watched instead of trying."></textarea>
+      </div>
+
+      <div class="activity-box">
+        <p class="activity-title"><span class="badge">✓</span>Persona Check</p>
+        <p class="bullet">It represents a real pattern from your evidence, not one isolated case.</p>
+        <p class="bullet">It has a role, goals, frustrations and a quote.</p>
+        <p class="bullet">It does not include a solution yet.</p>
+      </div>
+
+      <div class="template-actions">
+        <button class="btn teal full" data-save="" type="button"><svg class="btn-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save T05 User Persona</button>
+        <button class="btn ghost full" data-next-subtab="t06" type="button">Continue to T06 User Needs</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t06">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head">
+      <div>
+        <h2>T06 Identifying Insights &amp; User Needs</h2>
+        <p class="section-sub">Turn your persona and evidence into one clear insight and a verb-led user need statement.</p>
+      </div>
+      <span class="status">Continue</span>
+    </div>
+
+    <div class="template-guide-card">
+      <span class="guide-tag">Template Intro</span>
+      <h3>What is this template for?</h3>
+      <p>An insight explains WHY a need matters, based on evidence that repeats across your users. The need statement is the one sentence your team carries forward into Ideation — it names a need, not a solution.</p>
+      <div class="guide-mini-grid">
+        <div><b>Input</b><span>Persona + evidence</span></div>
+        <div><b>Formula</b><span>Pattern → Insight → Need</span></div>
+        <div><b>Output</b><span>One need statement</span></div>
+      </div>
+      <a class="btn ghost full" href="guide/t06-insight-needs-for-beginners.html" target="_blank" rel="noopener" style="margin-top:12px">Open T06 Full Guide</a>
+    </div>
+
+    <div class="activity-box enhanced">
+      <p class="activity-title"><span class="badge">A7</span>What students need to do</p>
+      <p class="bullet"><b>1. Find the repeated pattern:</b> what showed up across more than one interview or observation?</p>
+      <p class="bullet"><b>2. Write the insight:</b> explain why this pattern matters to the user.</p>
+      <p class="bullet"><b>3. Write the need statement:</b> use a verb such as <i>to know</i>, <i>to feel</i>, <i>to access</i> or <i>to reduce</i>.</p>
+      <p class="bullet"><b>4. Check it is a need, not a solution:</b> "needs an app" is a solution; "needs reassurance" is a need.</p>
+    </div>
+
+    <div class="sample infographic-sample">
+      <h3>Insight → Need Formula</h3>
+      <div class="flowline">
+        <div><span>1</span><b>Pattern</b><small>What repeats?</small></div>
+        <div><span>2</span><b>Insight</b><small>Why does it matter?</small></div>
+        <div><span>3</span><b>Need</b><small>What must be met?</small></div>
+      </div>
+    </div>
+
+    <div class="switch template-mode-switch">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Insight &amp; Need</span>
+        <h3>Reassurance before trying</h3>
+        <div class="needs-preview">
+          <div><b>Pattern</b><p>Several first-time visitors hesitated or only watched instead of joining in.</p></div>
+          <div><b>Insight</b><p>Because they were afraid of damaging the cloth and did not know the correct steps.</p></div>
+          <div><b>Need</b><p>The first-time visitor needs reassurance and clear step-by-step guidance before trying batik.</p></div>
+        </div>
+        <div class="sample-tip"><b>Why this works:</b> The need is written as a feeling/action the user requires, not as an app, poster or product.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer">
+        <div class="sample-answer-title">✍️ Fill guide</div>
+        <p>Use your Phase 01 evidence and T05 persona. Your need statement should be one short sentence.</p>
+      </div>
+
+      <div class="field">
+        <label>Repeated Pattern</label>
+        <p class="field-help">What showed up more than once across your research?</p>
+        <textarea class="textarea" name="df_p02_t06_pattern" placeholder="Example: several first-time visitors hesitated or only watched instead of joining in"></textarea>
+      </div>
+      <div class="field">
+        <label>Insight <small>(why it matters)</small></label>
+        <p class="field-help">Explain the reason behind the pattern, based on evidence.</p>
+        <textarea class="textarea" name="df_p02_t06_insight" placeholder="Example: because they were afraid of damaging the cloth and did not know the correct steps"></textarea>
+      </div>
+      <div class="field">
+        <label>User Need Statement <small>(verb-led)</small></label>
+        <p class="field-help">This single sentence is what Phase 03 Ideation inherits.</p>
+        <textarea class="textarea" name="df_p02_t06_need" placeholder="Example: the first-time visitor needs reassurance and clear step-by-step guidance before trying batik"></textarea>
+      </div>
+
+      <div class="bridge-box" style="background:linear-gradient(135deg,#FFF7ED,#FFF3D6);border:2px solid var(--orange, #FF6236);border-radius:22px;padding:16px 18px;margin:18px 0 4px">
+        <div class="bridge-tag" style="display:inline-block;background:var(--orange, #FF6236);color:#fff;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;padding:5px 12px;border-radius:999px;margin-bottom:8px">➜ Hand-off to Ideate</div>
+        <label for="t06challenge">Design Challenge / How Might We</label>
+        <p class="field-help">Turn your need statement into one "How Might We…" question to guide Phase 03 brainstorming.</p>
+        <textarea class="textarea" id="t06challenge" name="df_p02_t06_design_challenge" placeholder="Example: How might we help first-time visitors feel confident trying batik for the first time?"></textarea>
+      </div>
+
+      <div class="activity-box">
+        <p class="activity-title"><span class="badge">✓</span>Need Statement Check</p>
+        <p class="bullet">It is based on a pattern that repeats across your evidence.</p>
+        <p class="bullet">It names a need, not a solution.</p>
+        <p class="bullet">The How Might We question is open enough for many ideas.</p>
+      </div>
+
+      <div class="template-actions">
+        <button class="btn teal full" data-save="" type="button"><svg class="btn-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save T06 User Needs</button>
+        <button class="btn ghost full" data-next-subtab="gate1" type="button">Continue to Supervisor Gate 1</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="template-panel" id="gate1">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head">
+      <div>
+        <h2>Supervisor Gate 1</h2>
+        <p class="section-sub">Submit your Define work for supervisor review before moving into Ideation.</p>
+      </div>
+      <span class="status">Gate Check</span>
+    </div>
+
+    <div class="template-guide-card">
+      <span class="guide-tag">Final Checkpoint</span>
+      <h3>What will your supervisor check?</h3>
+      <p>Your supervisor checks whether your problem statement is user-centred, research-backed and does not already contain a solution. This prevents your team from brainstorming around the wrong problem.</p>
+      <div class="guide-mini-grid">
+        <div><b>Checks</b><span>T05 + T06 quality</span></div>
+        <div><b>Blocks</b><span>Phase 03 Ideation</span></div>
+        <div><b>Outcome</b><span>Approved / revise</span></div>
+      </div>
+    </div>
+
+    <div class="activity-box enhanced">
+      <p class="activity-title"><span class="badge">G1</span>Pre-Submission Checklist</p>
+      <p class="bullet">T05 Problem Statement completed with a clear POV.</p>
+      <p class="bullet">T06 HMW completed with 5 questions and one best HMW selected.</p>
+      <p class="bullet">Problem statement reviewed by all team members.</p>
+      <p class="bullet">Problem statement does NOT include a solution.</p>
+      <p class="bullet">Team is ready to begin Ideation after supervisor approval.</p>
+    </div>
+
+    <div class="switch template-mode-switch">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Gate 1 Submission Note</span>
+        <h3>Ready for supervisor review</h3>
+        <div class="sample-tip">Our team has completed T05 and T06. We would like feedback on whether our problem statement is user-centred, evidence-based and clear enough before Ideation.</div>
+        <div class="sample-tip"><b>Supervisor should check:</b> Is the problem clear? Is it based on Empathy evidence? Does it avoid jumping into the solution?</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer">
+        <div class="sample-answer-title">✍️ Fill guide</div>
+        <p>Write a short note to your supervisor. Mention what you completed and what feedback you need before Ideation.</p>
+      </div>
+      <div class="field">
+        <label>Supervisor Name</label>
+        <p class="field-help">Write the supervisor who will review your Define phase.</p>
+        <input class="input" name="df_p02_gate1_supervisor" placeholder="Example: Pn. Julie Marlina"/>
+      </div>
+      <div class="field">
+        <label>Submission Notes to Supervisor</label>
+        <p class="field-help">Briefly explain what your team has completed and what you want the supervisor to check.</p>
+        <textarea class="textarea" name="df_p02_gate1_notes" placeholder="Example: We have completed T05 and T06. Please check whether our problem statement is clear, user-centred and ready for Ideation."></textarea>
+      </div>
+      <div class="activity-box">
+        <p class="activity-title"><span class="badge">✓</span>Confirm before submit</p>
+        <p class="bullet">My team has checked the POV statement.</p>
+        <p class="bullet">My team has selected the best HMW question.</p>
+        <p class="bullet">We understand that Ideation should start after this problem is clear.</p>
+      </div>
+      <div class="action-row">
+        <button class="btn ghost" data-save="" type="button"><svg class="btn-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save Gate Note</button>
+        <button class="btn ghost" data-print="" type="button"><svg class="btn-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>Print</button>
+        <button class="btn primary" data-submit-phase="" type="button"><svg class="btn-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>Submit Gate 1</button>
+      </div>
+    </div>
+  </div>
+</section>
+</form>
+</section>
+</main>
+<nav aria-label="Main navigation" class="bottom-nav">
+<a class="nav-item" data-nav="dashboard" href="dashboard.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3ksWu.png"/><span class="nav-label">Dashboard</span></a>
+<a class="nav-item active" data-nav="learn" href="phase02-define.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3wdpn.png"/><span class="nav-label">Learn</span></a>
+<a class="nav-item" data-nav="projects" href="projects.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3kixe.png"/><span class="nav-label">Projects</span></a>
+<a class="nav-item" data-nav="progress" href="progress.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k4O7.png"/><span class="nav-label">Progress</span></a>
+<a class="nav-item" data-nav="profile" href="profile.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k6b9.png"/><span class="nav-label">Profile</span></a>
+</nav>
+</div>
+<script src="js/smartdt-assets.js"></script><script src="js/smartdt.js"></script>
+<script>
+/* =========================================================
+   Phase 01 -> Phase 02 handoff
+   Auto-fills the T06 "User Need Statement" field with the one-sentence user
+   need written at the end of Phase 01 (bridge-box, key
+   p01_t04_bridge), so the student doesn't retype it.
+
+   Safe:
+   - Runs AFTER smartdt.js's own DOMContentLoaded handler
+     (this script tag loads after js/smartdt.js, so this
+     listener registers and fires later), so it never
+     overwrites a value the student already saved for T05.
+   - Only fills the field if it is currently empty.
+   - Wrapped in try/catch so it can never break page load.
+   ========================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const needField = document.querySelector('[name="df_p02_t06_need"]');
+    if (needField && !needField.value.trim()) {
+      const bridge = (localStorage.getItem('p01_t04_bridge') || '').trim();
+      if (bridge) {
+        needField.value = bridge;
+        const note = document.createElement('p');
+        note.className = 'field-help';
+        note.style.color = 'var(--teal, #16B8AA)';
+        note.style.fontWeight = '700';
+        note.textContent = '📎 Carried over from your Phase 01 user-need sentence — edit as needed.';
+        needField.insertAdjacentElement('afterend', note);
+      }
+    }
+  } catch (e) { /* fail silently, never block the page */ }
+});
+</script>
+</body>
+</html>
