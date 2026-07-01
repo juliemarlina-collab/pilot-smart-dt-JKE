@@ -1,7 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Projects icon">
+  <title>Projects icon</title>
+  <rect x="8" y="8" width="112" height="112" rx="30" fill="#F8FAFC"/>
+  <rect x="8" y="8" width="112" height="112" rx="30" stroke="#081B44" stroke-width="4"/>
+  <circle cx="100" cy="28" r="10" fill="#F5A623"/>
+  <circle cx="28" cy="100" r="8" fill="#14B8A6" opacity="0.25"/>
+  
+  <path d="M30 44C30 39.5817 33.5817 36 38 36H56L64 46H92C96.4183 46 100 49.5817 100 54V88C100 92.4183 96.4183 96 92 96H38C33.5817 96 30 92.4183 30 88V44Z" fill="#081B44"/>
+  <path d="M38 56H90C94.4183 56 98 59.5817 98 64V88C98 92.4183 94.4183 96 90 96H38C33.5817 96 30 92.4183 30 88V64C30 59.5817 33.5817 56 38 56Z" fill="#14B8A6"/>
+  <rect x="46" y="68" width="36" height="6" rx="3" fill="white"/>
+  <rect x="46" y="80" width="24" height="6" rx="3" fill="#F5A623"/>
+  <circle cx="92" cy="58" r="8" fill="#FF6A3D"/>
 
-  <path d="M10 12H23L27 16H40C41.7 16 43 17.3 43 19V35C43 36.7 41.7 38 40 38H10C8.3 38 7 36.7 7 35V15C7 13.3 8.3 12 10 12Z" stroke="#081B44" stroke-width="2.8" stroke-linejoin="round"/>
-  <path d="M15 23H35" stroke="#FF6A3D" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M15 29H29" stroke="#14B8A6" stroke-width="2.8" stroke-linecap="round"/>
-  <circle cx="35.5" cy="30.5" r="3.5" fill="#F6C542" stroke="#081B44" stroke-width="2"/>
 </svg>

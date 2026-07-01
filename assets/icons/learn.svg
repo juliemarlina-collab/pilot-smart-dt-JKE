@@ -1,8 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Learn icon">
+  <title>Learn icon</title>
+  <rect x="8" y="8" width="112" height="112" rx="30" fill="#F8FAFC"/>
+  <rect x="8" y="8" width="112" height="112" rx="30" stroke="#081B44" stroke-width="4"/>
+  <circle cx="100" cy="28" r="10" fill="#F5A623"/>
+  <circle cx="28" cy="100" r="8" fill="#14B8A6" opacity="0.25"/>
+  
+  <path d="M36 40C36 35.5817 39.5817 32 44 32H90C94.4183 32 98 35.5817 98 40V88C98 92.4183 94.4183 96 90 96H44C39.5817 96 36 92.4183 36 88V40Z" fill="#14B8A6"/>
+  <path d="M36 42C36 36.4772 40.4772 32 46 32H54V96H46C40.4772 96 36 91.5228 36 86V42Z" fill="#081B44"/>
+  <path d="M62 48H86M62 62H86M62 76H78" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="47" cy="44" r="4" fill="#FF6A3D"/>
 
-  <path d="M10 15.5C10 13.6 11.6 12 13.5 12H37.5C39.4 12 41 13.6 41 15.5V34.5C41 36.4 39.4 38 37.5 38H13.5C11.6 38 10 36.4 10 34.5V15.5Z" stroke="#081B44" stroke-width="2.8"/>
-  <path d="M10 16C8 14.7 6.6 14 4.8 14C4.3 14 4 14.3 4 14.8V35.5C4 35.9 4.3 36.3 4.7 36.4C6.5 36.9 8 37.7 10 39" stroke="#14B8A6" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M19 20H33" stroke="#FF6A3D" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M19 26H33" stroke="#F6C542" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M19 32H29" stroke="#14B8A6" stroke-width="2.8" stroke-linecap="round"/>
 </svg>

@@ -1,0 +1,38 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Plus Icon</title>
+  <desc id="desc">Smart DT Project plus icon in navy, teal, orange, and yellow theme.</desc>
+
+  <defs>
+    <linearGradient id="tealGrad" x1="54" y1="44" x2="216" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18D6C3"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="74" y1="38" x2="190" y2="212" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8A3D"/>
+      <stop offset="1" stop-color="#FF6A3D"/>
+    </linearGradient>
+    <filter id="softShadow" x="24" y="24" width="208" height="208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#071B3D" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Outer rounded app badge -->
+  <rect x="40" y="40" width="176" height="176" rx="48" fill="#FFFFFF" filter="url(#softShadow)"/>
+  <rect x="48" y="48" width="160" height="160" rx="42" fill="#F6FAFF" stroke="#E8EDF2" stroke-width="4"/>
+
+  <!-- Teal circular action base -->
+  <circle cx="128" cy="128" r="58" fill="url(#tealGrad)"/>
+
+  <!-- Decorative orange/yellow corner marks to match Smart DT style -->
+  <circle cx="78" cy="78" r="8" fill="#F5A623"/>
+  <circle cx="182" cy="74" r="7" fill="#FF6A3D"/>
+  <path d="M71 177C77 185 85 191 94 195" stroke="#F5A623" stroke-width="7" stroke-linecap="round"/>
+  <path d="M178 178C186 172 192 164 196 155" stroke="#FF6A3D" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Plus symbol -->
+  <path d="M128 93V163" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round"/>
+  <path d="M93 128H163" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round"/>
+
+  <!-- Navy outline accent -->
+  <circle cx="128" cy="128" r="58" stroke="#071B3D" stroke-width="6" opacity="0.95"/>
+</svg>

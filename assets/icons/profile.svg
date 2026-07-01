@@ -1,7 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Professional profile icon">
+  <title>Professional profile icon</title>
+  <rect x="8" y="8" width="112" height="112" rx="32" fill="#F8FAFC"/>
+  <rect x="8" y="8" width="112" height="112" rx="32" stroke="#081B44" stroke-width="4"/>
+  <circle cx="102" cy="28" r="9" fill="#F5A623" opacity="0.95"/>
+  <circle cx="28" cy="102" r="7" fill="#14B8A6" opacity="0.25"/>
+  
+  <rect x="30" y="32" width="68" height="68" rx="14" fill="white" stroke="#081B44" stroke-width="6"/>
+  <circle cx="64" cy="55" r="13" fill="#FF6A3D" stroke="#081B44" stroke-width="4"/>
+  <path d="M42 87C45 73 53 68 64 68C75 68 83 73 86 87" fill="#14B8A6" stroke="#081B44" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M43 44H51" stroke="#14B8A6" stroke-width="5" stroke-linecap="round"/>
+  <path d="M77 43H86M77 52H88" stroke="#F5A623" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="93" cy="36" r="8" fill="#FF6A3D"/>
 
-  <circle cx="25" cy="18" r="7" stroke="#081B44" stroke-width="2.8"/>
-  <path d="M11 39C11 32.9 17.3 28 25 28C32.7 28 39 32.9 39 39" stroke="#081B44" stroke-width="2.8" stroke-linecap="round"/>
-  <circle cx="36.5" cy="13.5" r="3.5" fill="#14B8A6"/>
-  <path d="M34.5 13.5H38.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
 </svg>
