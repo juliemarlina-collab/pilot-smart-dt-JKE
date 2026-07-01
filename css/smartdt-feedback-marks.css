@@ -1,0 +1,257 @@
+/* Smart DT Project — Feedback & Marks Stylesheet */
+
+/* ── Feedback Cards ──────────────────────────── */
+.feedback-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: #888;
+}
+
+.feedback-card {
+  background: #fff;
+  border: 1.5px solid #e4e9f3;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.feedback-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-phase-badge {
+  background: var(--color-navy, #1a1a2e);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+
+.feedback-score {
+  background: var(--color-teal, #00bfa5);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+.feedback-comment {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.feedback-section {
+  background: #f5f7fb;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.feedback-section b {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-teal, #00bfa5);
+  margin-bottom: 4px;
+}
+
+.feedback-date {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* ── Self Reflection Form ─────────────────────── */
+.reflection-form {
+  background: #fff;
+  border: 1.5px solid #e4e9f3;
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.reflection-form h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-navy, #1a1a2e);
+}
+
+.reflection-form .field {
+  margin-bottom: 16px;
+}
+
+.reflection-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.reflection-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #dde3ec;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  resize: vertical;
+  min-height: 80px;
+  color: #222;
+  background: #fafbfd;
+}
+
+.reflection-form textarea:focus {
+  outline: none;
+  border-color: var(--color-teal, #00bfa5);
+}
+
+#reflectionMsg {
+  font-size: 13px;
+  color: var(--color-teal, #00bfa5);
+  font-weight: 600;
+  min-height: 20px;
+  margin-top: 8px;
+}
+
+/* ── Marks / Rubric ──────────────────────────── */
+.marks-phase-card {
+  background: #fff;
+  border: 1.5px solid #e4e9f3;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.marks-phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.marks-phase-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-navy, #1a1a2e);
+}
+
+.marks-status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.marks-status.submitted {
+  background: #e6f9f4;
+  color: #00875a;
+}
+
+.marks-status.pending {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.marks-rubric-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.marks-rubric-table th {
+  background: #f5f7fb;
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+  border-bottom: 1.5px solid #dde3ec;
+}
+
+.marks-rubric-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.marks-score-cell {
+  text-align: right;
+  font-weight: 700;
+  color: var(--color-teal, #00bfa5);
+}
+
+.marks-phase-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-navy, #1a1a2e);
+  border-top: 1.5px solid #eee;
+}
+
+.marks-grade-badge {
+  background: var(--color-navy, #1a1a2e);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+/* Overall summary */
+.marks-overall-card {
+  background: var(--color-navy, #1a1a2e);
+  color: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.marks-overall-label {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.75;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.marks-overall-pct {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.marks-overall-grade {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-teal, #00bfa5);
+}

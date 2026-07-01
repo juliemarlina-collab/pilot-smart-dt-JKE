@@ -1,0 +1,31 @@
+/* Smart DT Quick Info infographic guide */
+.quick-infographic-card,.quick-info-block,.key-output-card{background:#fff;border:1px solid var(--smart-line,#DCE5F2);border-radius:22px;padding:14px;margin:14px 0;box-shadow:0 12px 30px rgba(8,27,68,.06)}
+.orange-header{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--smart-orange,#FF6A3D),#F59E0B);color:#fff;border-radius:999px;padding:8px 14px;margin-bottom:12px;box-shadow:0 8px 18px rgba(255,106,61,.18);font-weight:900;letter-spacing:.02em}.orange-header span{display:grid;place-items:center;min-width:28px;height:28px;border-radius:50%;background:#fff;color:var(--smart-orange,#FF6A3D);font-weight:900;padding:0 6px}.orange-header b{font-size:13px;text-transform:uppercase;letter-spacing:.06em}.quick-info-block p{line-height:1.65;color:var(--smart-ink,#102033);margin:0}.phase-infographic-img{width:100%;display:block;border-radius:18px;border:1px solid #E6EEF8;background:#F8FAFC;margin-top:4px}.quick-purpose-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.quick-purpose-card{min-height:112px;border:1px solid var(--smart-line,#DCE5F2);border-radius:18px;padding:14px;background:#F8FAFC;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;text-align:left}.quick-purpose-card b{font-size:14px;line-height:1.35;color:var(--smart-navy,#081B44)}.purpose-icon{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:#EEF6FF}.quick-purpose-card.accent-1{border-bottom:5px solid var(--smart-blue,#2563EB)}.quick-purpose-card.accent-2{border-bottom:5px solid var(--smart-teal,#14B8A6)}.quick-purpose-card.accent-3{border-bottom:5px solid #EF476F}.quick-purpose-card.accent-4{border-bottom:5px solid var(--smart-yellow,#FBBF24)}.quick-process-grid{display:grid;gap:10px}.quick-process-card{position:relative;border:1px solid var(--smart-line,#DCE5F2);border-radius:18px;padding:16px 14px 14px;background:#fff;overflow:hidden}.quick-process-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--smart-blue,#2563EB)}.quick-process-card.accent-2:before{background:var(--smart-teal,#14B8A6)}.quick-process-card.accent-3:before{background:#6D28D9}.quick-process-card.accent-4:before{background:#EF476F}.quick-process-card.accent-5:before{background:#F59E0B}.process-no{position:absolute;right:12px;top:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--smart-blue,#2563EB);color:#fff;font-weight:900}.quick-process-card.accent-2 .process-no{background:var(--smart-teal,#14B8A6)}.quick-process-card.accent-3 .process-no{background:#6D28D9}.quick-process-card.accent-4 .process-no{background:#EF476F}.quick-process-card.accent-5 .process-no{background:#F59E0B}.quick-process-card small{display:inline-flex;font-weight:900;color:var(--smart-orange,#FF6A3D);background:#FFF7ED;border-radius:999px;padding:4px 9px;margin-bottom:8px}.quick-process-card h3{margin:0 42px 5px 0;font-size:16px;line-height:1.25;color:var(--smart-navy,#081B44)}.quick-process-card p{font-size:13px;color:var(--smart-muted,#64748B);line-height:1.45;margin:0}.key-output-card{display:flex;gap:14px;align-items:center;background:linear-gradient(135deg,#FFF7ED,#FFFBEB);border-color:#FCD34D}.key-output-card .trophy{font-size:42px;flex:0 0 auto}.key-output-card b{display:block;color:var(--smart-navy,#081B44);font-size:18px}.key-output-card p{margin:4px 0 0;line-height:1.55;color:var(--smart-ink,#102033)}@media(max-width:640px){.quick-purpose-grid{grid-template-columns:1fr}.quick-purpose-card{min-height:auto}.orange-header{border-radius:18px}.phase-infographic-img{border-radius:16px}}
+
+
+/* Emergency stability patch: keep Quick Info inside the mobile app frame */
+.quick-info-smartdt{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  padding:16px 16px calc(var(--nav-height,72px) + 18px);
+  box-sizing:border-box;
+}
+.quick-info-smartdt .quick-infographic-card,
+.quick-info-smartdt .quick-info-block,
+.quick-info-smartdt .key-output-card{
+  width:100%;
+  box-sizing:border-box;
+}
+.quick-info-smartdt .phase-infographic-img{
+  width:100%;
+  max-width:360px;
+  max-height:640px;
+  object-fit:contain;
+  margin:8px auto 0;
+  display:block;
+}
+@media(min-width:768px){
+  .quick-info-smartdt{max-width:460px;}
+  .quick-info-smartdt .phase-infographic-img{max-width:390px;max-height:690px;}
+}

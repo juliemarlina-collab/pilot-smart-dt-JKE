@@ -1,0 +1,175 @@
+/* Smart DT Project — Printable / PDF Stylesheet */
+
+/* Screen preview wrapper */
+.printable-screen-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.print-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.print-toolbar .btn-back {
+  background: none;
+  border: 1.5px solid var(--color-navy);
+  color: var(--color-navy);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+#triggerPrint {
+  background: var(--color-teal);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* Print page */
+.print-page {
+  background: #fff;
+  border: 1px solid #dde3ec;
+  border-radius: 12px;
+  padding: 32px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+
+.print-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #1a1a2e;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.print-brand {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-navy, #1a1a2e);
+  display: block;
+}
+
+.print-phase-badge {
+  display: inline-block;
+  background: var(--color-teal, #00bfa5);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+
+.print-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--color-navy, #1a1a2e);
+}
+
+.print-date {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+}
+
+/* Student info table */
+.print-student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.print-student-table td {
+  padding: 6px 10px;
+  border: 1px solid #dde3ec;
+}
+
+.print-student-table td:nth-child(odd) {
+  background: #f5f7fb;
+  font-weight: 600;
+  width: 18%;
+}
+
+/* Field blocks */
+.print-field {
+  margin-bottom: 18px;
+}
+
+.print-field-label {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-teal, #00bfa5);
+  margin: 0 0 4px;
+}
+
+.print-field-value {
+  border: 1px solid #dde3ec;
+  border-radius: 6px;
+  padding: 10px 14px;
+  min-height: 48px;
+  background: #fafbfd;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.print-empty {
+  color: #aaa;
+  font-style: italic;
+  text-align: center;
+  padding: 32px;
+}
+
+.print-footer {
+  border-top: 1px solid #dde3ec;
+  margin-top: 32px;
+  padding-top: 10px;
+  font-size: 10px;
+  color: #aaa;
+  text-align: center;
+}
+
+/* ── Print Media Query ──────────────────────────── */
+@media print {
+  body { margin: 0; background: #fff; }
+  .print-toolbar, .bottom-nav, .header { display: none !important; }
+  .printable-screen-wrap { padding: 0; }
+  .print-page {
+    border: none;
+    border-radius: 0;
+    padding: 16mm 18mm;
+    font-size: 11pt;
+    box-shadow: none;
+  }
+  .print-title { font-size: 15pt; }
+  .print-field-value { border-color: #ccc; }
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+}

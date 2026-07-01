@@ -65,10 +65,6 @@
   border-radius:30px !important;
   padding:18px !important;
   margin:20px auto !important;
-  max-width:900px !important;   /* hugs the 820px image + padding, stops the card
-                                    from stretching edge-to-edge on wide/desktop
-                                    screens and leaving dead white space */
-  width:100% !important;
   display:flex !important;
   justify-content:center !important;
   align-items:center !important;
