@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart DT · Phase 02 Define Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#071B3D;--teal:#20C7BD;--tealDk:#147F79;--tealLt:#D9FBF8;
+  --orange:#FF633D;--orangeLt:#FFF3F0;--yellow:#FDBA2D;--yellowLt:#FFFBEA;
+  --pink:#F76C82;--pinkLt:#FFE8EE;--green:#22C55E;--greenLt:#DCFCE7;
+  --red:#EF4444;--redLt:#FEE2E2;--bg:#FAFBFC;--white:#FFFFFF;
+  --txt:#071B3D;--sub:#53617A;--muted:#94A3B8;--border:#E8EDF5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh;background:var(--bg);color:var(--txt);font-family:'Poppins',sans-serif}
+body{display:flex;justify-content:center}
+.frame{width:min(490px,100vw);min-height:100vh;background:var(--white);position:relative;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:530px){body{background:#EDF0F5;padding:24px 0 40px}.frame{border-radius:32px;box-shadow:0 8px 60px rgba(7,27,61,.14);min-height:calc(100vh - 48px)}}
+.blob-pink{position:absolute;width:190px;height:190px;border-radius:50%;top:-70px;left:-70px;background:radial-gradient(circle,rgba(255,180,155,.28) 0%,transparent 70%);z-index:0;pointer-events:none}
+.dot-grid{position:absolute;top:85px;right:16px;width:90px;height:90px;z-index:0;pointer-events:none;background-image:radial-gradient(#C8D6E8 2.2px,transparent 2.2px);background-size:13px 13px;opacity:.75}
+.topbar{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 20px 12px}
+.brand{display:flex;align-items:center;gap:10px}.logo-svg{width:52px;height:52px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(7,27,61,.22)}
+.brand-name{font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--navy);line-height:1.2;letter-spacing:-.2px}
+.tb-pill{background:#F0F2F5;border-radius:99px;padding:8px 14px;font-size:12px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:6px}
+.hero{position:relative;z-index:1;padding:4px 20px 12px}.phase-badge{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:16px;background:var(--teal);color:#fff;font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;margin-bottom:10px}
+.hero h1{font-family:'Nunito',sans-serif;font-size:40px;line-height:.95;font-weight:900;letter-spacing:-1.4px;color:var(--navy)}.hero h1 span{color:var(--orange)}
+.accent-line{width:48px;height:5px;border-radius:3px;background:var(--orange);margin:12px 0}.hero p{font-size:13px;color:var(--sub);line-height:1.65;max-width:370px}
+.phase-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 16px 8px;position:relative;z-index:3}
+.flow-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:10px 8px;text-align:center;box-shadow:0 6px 20px rgba(7,27,61,.05)}
+.flow-num{width:28px;height:28px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;background:var(--navy)}
+.flow-title{font-size:10px;font-weight:800;color:var(--navy);line-height:1.25}
+.template-tabs{position:relative;z-index:3;display:flex;gap:8px;padding:10px 16px;overflow:auto;scrollbar-width:none}.template-tabs::-webkit-scrollbar{display:none}
+.tab-btn{border:none;background:#F0F2F5;color:#64748B;padding:10px 14px;border-radius:99px;font-size:12px;font-weight:800;font-family:'Poppins',sans-serif;white-space:nowrap;cursor:pointer}.tab-btn.active{background:var(--navy);color:#fff}
+.card{position:relative;z-index:2;margin:0 16px 12px;background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 8px 24px rgba(7,27,61,.06)}
+.template-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.template-title{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:var(--navy);line-height:1.1}.template-sub{margin-top:4px;font-size:12px;line-height:1.55;color:var(--sub)}
+.status-chip{flex-shrink:0;display:inline-flex;background:var(--yellowLt);color:#9A6700;border:1px solid rgba(253,186,45,.45);padding:6px 10px;border-radius:99px;font-size:10.5px;font-weight:800}
+.activity-card{margin-top:14px;padding:14px;border-radius:16px;background:linear-gradient(180deg,#FBFCFE 0%,#F7FAFD 100%);border:1.5px solid var(--border)}
+.activity-title{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--navy)}.activity-badge{width:28px;height:28px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--teal);color:#fff;font-size:13px;font-weight:900}
+.activity-points{margin-top:10px;display:grid;gap:8px}.point{display:flex;gap:8px;font-size:12px;line-height:1.55;color:var(--sub)}.point b{color:var(--navy)}.point-dot{width:9px;height:9px;border-radius:50%;background:var(--orange);margin-top:5px;flex:0 0 9px}
+.mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;background:#F5F7FA;padding:5px;border-radius:15px}.mode-btn{border:none;border-radius:12px;padding:10px 8px;font-size:12px;font-weight:800;font-family:'Poppins',sans-serif;color:var(--sub);background:transparent;cursor:pointer}.mode-btn.active{color:var(--navy);background:var(--white);box-shadow:0 3px 12px rgba(7,27,61,.08)}
+.sample-section,.form-section{display:none}.sample-section.active,.form-section.active{display:block}.sample-box{margin-top:14px;background:var(--tealLt);border:1.5px solid rgba(32,199,189,.45);border-radius:16px;padding:14px}.sample-title{font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px}.sample-box p,.sample-box li{font-size:12px;line-height:1.55;color:var(--sub)}.sample-box ul{padding-left:18px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{margin-bottom:12px}label{display:block;font-size:12px;font-weight:800;color:var(--navy);margin-bottom:6px}
+input,textarea,select{width:100%;border:1.5px solid var(--border);border-radius:14px;padding:12px 13px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy);outline:none;background:var(--white)}
+textarea{min-height:92px;resize:vertical;line-height:1.55}input:focus,textarea:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(32,199,189,.14)}
+.canvas-box{margin-top:12px;border:1.5px solid var(--border);border-radius:18px;overflow:hidden;background:#fff}.canvas-head{padding:12px 14px;background:var(--yellowLt);font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--navy);border-bottom:1px solid var(--border)}.canvas-body{padding:12px}.formula{background:#F8FAFC;border:1px solid var(--border);border-radius:14px;padding:12px;font-size:13px;color:var(--navy);font-weight:700;line-height:1.55}
+.hmw-grid{display:grid;gap:10px;margin-top:12px}.hmw-card{border:1.5px solid var(--border);border-radius:16px;padding:12px;background:#fff}.hmw-card textarea{min-height:70px}.rank-row{display:grid;grid-template-columns:1fr 90px;gap:10px;align-items:end}
+.tip-box{margin-top:12px;padding:12px;border-radius:16px;background:var(--orangeLt);border:1.5px solid rgba(255,99,61,.18)}.tip-title{font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;color:var(--navy);margin-bottom:4px}.tip-box p{font-size:12px;line-height:1.55;color:var(--sub)}
+.checklist{margin-top:12px;background:var(--yellowLt);border:1.5px solid rgba(253,186,45,.35);border-radius:16px;padding:13px}.checklist-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;color:var(--navy);margin-bottom:8px}.check-row{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--sub);line-height:1.4;margin:7px 0}.check-row input{width:16px;height:16px;margin-top:1px;accent-color:var(--teal)}
+.action-row{display:flex;gap:9px;margin-top:14px}.btn{border:none;border-radius:99px;padding:13px 15px;font-size:13px;font-weight:800;font-family:'Poppins',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}.btn.secondary{flex:1;background:var(--white);color:var(--navy);border:1.5px solid var(--border)}.btn.primary{flex:1.4;background:var(--navy);color:#fff;box-shadow:0 6px 18px rgba(7,27,61,.18)}.btn.warning{background:var(--orange);color:#fff}
+.gate-card{background:linear-gradient(180deg,var(--navy),#0B2758);color:#fff;border:none}.gate-card .template-title,.gate-card .template-sub{color:#fff}.gate-card .template-sub{opacity:.82}.gate-list{display:grid;gap:9px;margin-top:14px}.gate-item{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:12px;border-radius:16px;font-size:12px;line-height:1.45}.gate-item input{width:16px;height:16px;margin-top:1px;accent-color:var(--teal);flex-shrink:0}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);width:min(430px,calc(100vw - 32px));background:var(--navy);color:#fff;padding:14px 16px;border-radius:18px;font-size:13px;font-weight:700;line-height:1.4;box-shadow:0 10px 30px rgba(7,27,61,.24);opacity:0;pointer-events:none;transition:.25s ease;z-index:50}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.footer-note{padding:4px 20px 22px;color:var(--sub);font-size:11px;line-height:1.5;text-align:center}.hidden{display:none}
+
+  /* Back button injected by Smart DT V3 */
+  .sdtv3-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px 6px;
+    position: relative;
+    z-index: 10;
+  }
+  .sdtv3-back a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #071B3D;
+    text-decoration: none;
+    background: #F0F2F5;
+    border-radius: 99px;
+    padding: 8px 14px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .sdtv3-back a:hover { background: #E2E6EC; }
+
+</style>
+</head>
+<body>
+<div class="frame">
+  
+  <div class="sdtv3-back">
+    <a href="phase02-define.html" aria-label="Back to Define Phase">
+      ← Define Phase
+    </a>
+  </div>
+  <div class="blob-pink"></div><div class="dot-grid"></div>
+  <header class="topbar">
+    <div class="brand"><div class="logo-svg">
+      <svg width="28" height="32" viewBox="0 0 28 32" fill="none" aria-hidden="true"><ellipse cx="14" cy="13" rx="8" ry="8" fill="#FF633D"/><path d="M10 19h8v2.5c0 .8-.7 1.5-1.5 1.5h-5c-.8 0-1.5-.7-1.5-1.5V19z" fill="#E0D8CC"/><path d="M12 23.5h4V25a2 2 0 01-2 2 2 2 0 01-2-2v-1.5z" fill="#C8C0B4"/><path d="M14 6.5V4.5M9 7.5L7.5 6M19 7.5L20.5 6M7 13H5M23 13H21" stroke="#FDBA2D" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="rgba(255,255,255,.35)"/></svg>
+    </div><div class="brand-name">Smart DT<br>Project</div></div>
+    <div class="tb-pill"><span style="color:var(--orange)">02</span> / 05</div>
+  </header>
+
+  <section class="hero">
+    <div class="phase-badge">02</div>
+    <h1><span>Define</span><br>Templates</h1>
+    <div class="accent-line"></div>
+    <p>Turn empathy findings into one clear user-centred problem statement and focused How Might We questions before ideation begins.</p>
+  </section>
+
+  <section class="phase-flow" aria-label="Phase 02 activity flow">
+    <div class="flow-card"><div class="flow-num">1</div><div class="flow-title">Review<br>Evidence</div></div>
+    <div class="flow-card"><div class="flow-num">2</div><div class="flow-title">Frame<br>Problem</div></div>
+    <div class="flow-card"><div class="flow-num">3</div><div class="flow-title">Create<br>HMW</div></div>
+  </section>
+
+  <nav class="template-tabs" aria-label="Phase 02 templates">
+    <button class="tab-btn active" onclick="showTemplate('t05', this)">T05 Problem</button>
+    <button class="tab-btn" onclick="showTemplate('t06', this)">T06 HMW</button>
+    <button class="tab-btn" onclick="showTemplate('gate1', this)">Gate 1</button>
+  </nav>
+
+  <section id="t05" class="template-panel card">
+    <div class="template-head"><div><div class="template-title">T05 Problem Statement</div><div class="template-sub">Create a clear Point of View problem statement from empathy evidence.</div></div><div class="status-chip" id="status-t05">Not Started</div></div>
+    <div class="activity-card"><div class="activity-title"><div class="activity-badge">A1</div>Interactive Activity</div><div class="activity-points"><div class="point"><div class="point-dot"></div><div><b>Review:</b> look back at T02 Empathy Map, T03 Persona and T04 User Needs Summary.</div></div><div class="point"><div class="point-dot"></div><div><b>Frame:</b> write the user, need and insight before combining them.</div></div><div class="point"><div class="point-dot"></div><div><b>Check:</b> make sure the statement describes the problem only, not the solution.</div></div></div></div>
+    <div class="mode-switch"><button class="mode-btn active" onclick="setMode('t05','sample',this)">View Sample</button><button class="mode-btn" onclick="setMode('t05','form',this)">Fill Template</button></div>
+
+    <div class="sample-section active" data-panel="t05-sample">
+      <div class="sample-box"><div class="sample-title">Sample Problem Statement</div>
+        <p><b>User:</b> Polytechnic students who buy lunch during short breaks.</p>
+        <p><b>Need:</b> Need a faster and less stressful way to get lunch.</p>
+        <p><b>Insight:</b> They avoid the canteen because long queues make them late for class.</p>
+      </div>
+      <div class="canvas-box"><div class="canvas-head">POV Formula</div><div class="canvas-body"><div class="formula">[User] needs [Need] because [Insight].<br><br>Example: POLIPD students need a faster way to get lunch because long queues make them miss rest time and risk being late to class.</div></div></div>
+    </div>
+
+    <div class="form-section" data-panel="t05-form">
+      <div class="field"><label>User Description</label><textarea name="userDescription" placeholder="Who is the target user? Be specific."></textarea></div>
+      <div class="field"><label>Need — verb-led</label><textarea name="need" placeholder="What does the user need to do, feel, access, understand, or manage?"></textarea></div>
+      <div class="field"><label>Insight</label><textarea name="insight" placeholder="What deeper reason did your empathy research reveal?"></textarea></div>
+      <div class="field"><label>Full POV Problem Statement</label><textarea name="povStatement" placeholder="[User] needs [need] because [insight]."></textarea></div>
+      <div class="field-grid"><div class="field"><label>In Scope</label><textarea name="inScope" placeholder="What is included in this problem?"></textarea></div><div class="field"><label>Out of Scope</label><textarea name="outScope" placeholder="What is not included?"></textarea></div></div>
+      <div class="field"><label>Why This Problem Matters</label><textarea name="whyMatters" placeholder="Explain why solving this problem is important for the user."></textarea></div>
+      <div class="tip-box"><div class="tip-title">Smart Tip</div><p>A strong problem statement should be user-centred, research-backed, and solution-free.</p></div>
+      <div class="checklist"><div class="checklist-title">Completion Checklist</div><label class="check-row"><input type="checkbox"> User, need and insight are clearly stated.</label><label class="check-row"><input type="checkbox"> Problem statement does not include a solution.</label><label class="check-row"><input type="checkbox"> Scope is realistic for FYP timeline.</label></div>
+      <div class="action-row"><button class="btn secondary" onclick="saveDraft('t05')">Save Draft</button><button class="btn primary" onclick="submitTemplate('t05')">Submit</button></div>
+    </div>
+  </section>
+
+  <section id="t06" class="template-panel card hidden">
+    <div class="template-head"><div><div class="template-title">T06 How Might We</div><div class="template-sub">Generate 5 HMW questions and choose the strongest one for ideation.</div></div><div class="status-chip" id="status-t06">Not Started</div></div>
+    <div class="activity-card"><div class="activity-title"><div class="activity-badge">A2</div>Interactive Activity</div><div class="activity-points"><div class="point"><div class="point-dot"></div><div><b>Start from T05:</b> use your approved problem statement as the reference.</div></div><div class="point"><div class="point-dot"></div><div><b>Open possibilities:</b> HMW questions should invite many ideas, not one fixed solution.</div></div><div class="point"><div class="point-dot"></div><div><b>Select:</b> choose the question that is focused but still creative.</div></div></div></div>
+    <div class="mode-switch"><button class="mode-btn active" onclick="setMode('t06','sample',this)">View Sample</button><button class="mode-btn" onclick="setMode('t06','form',this)">Fill Template</button></div>
+
+    <div class="sample-section active" data-panel="t06-sample">
+      <div class="sample-box"><div class="sample-title">Sample HMW Questions</div>
+        <p><b>Problem Reference:</b> Students struggle to get lunch quickly during short breaks.</p>
+        <ul>
+          <li>How might we help students get lunch faster during peak hours?</li>
+          <li>How might we reduce canteen waiting stress for students?</li>
+          <li>How might we help students plan lunch before break time?</li>
+          <li>How might we make lunch access easier for students with tight schedules?</li>
+          <li>How might we improve the canteen experience without increasing student cost?</li>
+        </ul>
+      </div>
+      <div class="tip-box"><div class="tip-title">Good HMW Test</div><p>Not too broad: “How might we fix food?” Not too narrow: “How might we create a QR pre-order app?” The best HMW opens many solution possibilities.</p></div>
+    </div>
+
+    <div class="form-section" data-panel="t06-form">
+      <div class="field"><label>Reference to T05 Problem Statement</label><textarea name="problemReference" placeholder="Paste or summarise your T05 problem statement here."></textarea></div>
+      <div class="hmw-grid">
+        <div class="hmw-card"><label>HMW Question 1</label><textarea name="hmw1" placeholder="How might we..."></textarea></div>
+        <div class="hmw-card"><label>HMW Question 2</label><textarea name="hmw2" placeholder="How might we..."></textarea></div>
+        <div class="hmw-card"><label>HMW Question 3</label><textarea name="hmw3" placeholder="How might we..."></textarea></div>
+        <div class="hmw-card"><label>HMW Question 4</label><textarea name="hmw4" placeholder="How might we..."></textarea></div>
+        <div class="hmw-card"><label>HMW Question 5</label><textarea name="hmw5" placeholder="How might we..."></textarea></div>
+      </div>
+      <div class="rank-row"><div class="field"><label>Best HMW Selected</label><textarea name="bestHmw" placeholder="Copy your best HMW question here."></textarea></div><div class="field"><label>Rank</label><select name="bestRank"><option value="">Select</option><option>HMW 1</option><option>HMW 2</option><option>HMW 3</option><option>HMW 4</option><option>HMW 5</option></select></div></div>
+      <div class="field"><label>Justification for Chosen HMW</label><textarea name="hmwJustification" placeholder="Why is this the strongest HMW for your team to use in ideation?"></textarea></div>
+      <div class="checklist"><div class="checklist-title">Completion Checklist</div><label class="check-row"><input type="checkbox"> 5 HMW questions written.</label><label class="check-row"><input type="checkbox"> Best HMW selected and justified.</label><label class="check-row"><input type="checkbox"> HMW questions do not contain fixed solutions.</label></div>
+      <div class="action-row"><button class="btn secondary" onclick="saveDraft('t06')">Save Draft</button><button class="btn primary" onclick="submitTemplate('t06')">Submit</button></div>
+    </div>
+  </section>
+
+  <section id="gate1" class="template-panel card gate-card hidden">
+    <div class="template-head"><div><div class="template-title">Supervisor Gate 1</div><div class="template-sub">Problem framing review before students begin Ideation.</div></div><div class="status-chip" id="status-gate1">Pending</div></div>
+    <div class="activity-card" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)"><div class="activity-title" style="color:#fff"><div class="activity-badge">G1</div>Approval Activity</div><div class="activity-points"><div class="point" style="color:rgba(255,255,255,.82)"><div class="point-dot"></div><div><b style="color:#fff">Supervisor checks:</b> the problem is user-centred, research-backed and does not include a solution.</div></div><div class="point" style="color:rgba(255,255,255,.82)"><div class="point-dot"></div><div><b style="color:#fff">Student action:</b> complete T05 and T06 before requesting approval.</div></div></div></div>
+    <div class="gate-list">
+      <label class="gate-item"><input type="checkbox"> T05 Problem Statement completed with clear POV.</label>
+      <label class="gate-item"><input type="checkbox"> T06 HMW completed with 5 questions and best HMW selected.</label>
+      <label class="gate-item"><input type="checkbox"> Problem statement reviewed by all team members.</label>
+      <label class="gate-item"><input type="checkbox"> Problem statement does NOT include a solution.</label>
+      <label class="gate-item"><input type="checkbox"> Team ready to begin Ideation.</label>
+    </div>
+    <div class="field" style="margin-top:14px"><label style="color:#fff">Supervisor Comment / Revision Note</label><textarea name="supervisorComment" placeholder="Supervisor feedback or student revision note..."></textarea></div>
+    <div class="action-row"><button class="btn secondary" onclick="saveDraft('gate1')">Save Draft</button><button class="btn warning" onclick="requestApproval()">Request Approval</button></div>
+  </section>
+
+  <div class="footer-note">Suggested app flow: Quick Info → Activity Guide → View Sample → Fill Template → Save Draft → Submit → Gate 1 Approval</div>
+</div>
+<div class="toast" id="toast">Saved.</div>
+<script>
+const APP_SCRIPT_URL = "";
+function showTemplate(id, btn){document.querySelectorAll('.template-panel').forEach(p=>p.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function setMode(templateId,mode,btn){const section=document.getElementById(templateId);section.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');section.querySelectorAll('.sample-section').forEach(s=>s.classList.remove('active'));section.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));const target=section.querySelector(`[data-panel="${templateId}-${mode}"]`);if(target)target.classList.add('active')}
+function collectData(templateId){const section=document.getElementById(templateId);const fields=section.querySelectorAll('input[name], textarea[name], select[name]');const data={templateId,phase:"Phase 02 Define",status:"In Progress",timestamp:new Date().toISOString()};fields.forEach(field=>data[field.name]=field.value.trim());return data}
+function updateStatus(templateId,status){const chip=document.getElementById(`status-${templateId}`);chip.textContent=status;if(status==="Submitted"||status==="Approval Requested"){chip.style.background="var(--greenLt)";chip.style.color="#166534";chip.style.borderColor="rgba(34,197,94,.35)"}else if(status==="In Progress"){chip.style.background="var(--tealLt)";chip.style.color="var(--tealDk)";chip.style.borderColor="rgba(32,199,189,.45)"}else{chip.style.background="var(--yellowLt)";chip.style.color="#9A6700";chip.style.borderColor="rgba(253,186,45,.45)"}}
+function saveDraft(templateId){const data=collectData(templateId);data.status="In Progress";localStorage.setItem(`smartdt_${templateId}`,JSON.stringify(data));updateStatus(templateId,"In Progress");showToast(`${templateId.toUpperCase()} draft saved on this device.`)}
+async function submitTemplate(templateId){const data=collectData(templateId);data.status="Submitted";localStorage.setItem(`smartdt_${templateId}`,JSON.stringify(data));updateStatus(templateId,"Submitted");if(APP_SCRIPT_URL){try{await fetch(APP_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});showToast(`${templateId.toUpperCase()} submitted to Google Sheets.`)}catch(error){showToast(`Saved locally, but Google Sheets submission failed.`)}}else{showToast(`${templateId.toUpperCase()} submitted locally. Add Apps Script URL to send to Google Sheets.`)}}
+function requestApproval(){const data=collectData('gate1');data.status="Approval Requested";localStorage.setItem("smartdt_gate1",JSON.stringify(data));updateStatus("gate1","Approval Requested");showToast("Gate 1 approval request saved. Connect Apps Script URL to notify supervisor.")}
+function showToast(message){const toast=document.getElementById('toast');toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2800)}
+function restoreDrafts(){["t05","t06","gate1"].forEach(id=>{const raw=localStorage.getItem(`smartdt_${id}`);if(!raw)return;try{const data=JSON.parse(raw);const section=document.getElementById(id);Object.entries(data).forEach(([key,value])=>{const field=section.querySelector(`[name="${key}"]`);if(field)field.value=value});updateStatus(id,data.status||"In Progress")}catch(e){}})}
+restoreDrafts();
+</script>
+</body>
+</html>

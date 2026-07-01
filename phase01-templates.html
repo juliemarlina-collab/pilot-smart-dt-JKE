@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart DT · Phase 01 Empathy Templates V2</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#071B3D;--teal:#20C7BD;--tealDk:#147F79;--tealLt:#D9FBF8;
+  --orange:#FF633D;--orangeLt:#FFF3F0;--yellow:#FDBA2D;--yellowLt:#FFFBEA;
+  --pink:#F76C82;--pinkLt:#FFE8EE;--green:#22C55E;--greenLt:#DCFCE7;
+  --bg:#FAFBFC;--white:#FFFFFF;--txt:#071B3D;--sub:#53617A;--muted:#94A3B8;--border:#E8EDF5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh;background:var(--bg);color:var(--txt);font-family:'Poppins',sans-serif}
+body{display:flex;justify-content:center}
+.frame{width:min(490px,100vw);min-height:100vh;background:var(--white);position:relative;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:530px){body{background:#EDF0F5;padding:24px 0 40px}.frame{border-radius:32px;box-shadow:0 8px 60px rgba(7,27,61,.14);min-height:calc(100vh - 48px)}}
+.blob-pink{position:absolute;width:190px;height:190px;border-radius:50%;top:-70px;left:-70px;background:radial-gradient(circle,rgba(255,180,155,.28) 0%,transparent 70%);z-index:0;pointer-events:none}
+.dot-grid{position:absolute;top:85px;right:16px;width:90px;height:90px;z-index:0;pointer-events:none;background-image:radial-gradient(#C8D6E8 2.2px,transparent 2.2px);background-size:13px 13px;opacity:.75}
+.topbar{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 20px 12px}
+.brand{display:flex;align-items:center;gap:10px}.logo-svg{width:52px;height:52px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(7,27,61,.22)}
+.brand-name{font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--navy);line-height:1.2;letter-spacing:-.2px}
+.tb-pill{background:#F0F2F5;border-radius:99px;padding:8px 14px;font-size:12px;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:6px}
+.hero{position:relative;z-index:1;padding:4px 20px 12px}.phase-badge{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:16px;background:var(--teal);color:#fff;font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;margin-bottom:10px}
+.hero h1{font-family:'Nunito',sans-serif;font-size:40px;line-height:.95;font-weight:900;letter-spacing:-1.4px;color:var(--navy)}.hero h1 span{color:var(--orange)}
+.accent-line{width:48px;height:5px;border-radius:3px;background:var(--orange);margin:12px 0}.hero p{font-size:13px;color:var(--sub);line-height:1.65;max-width:370px}
+.phase-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 16px 8px;position:relative;z-index:3}
+.flow-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:10px 8px;text-align:center;box-shadow:0 6px 20px rgba(7,27,61,.05)}
+.flow-num{width:28px;height:28px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;color:#fff;background:var(--navy)}
+.flow-title{font-size:10px;font-weight:800;color:var(--navy);line-height:1.25}
+.template-tabs{position:relative;z-index:3;display:flex;gap:8px;padding:10px 16px;overflow:auto;scrollbar-width:none}.template-tabs::-webkit-scrollbar{display:none}
+.tab-btn{border:none;background:#F0F2F5;color:#64748B;padding:10px 14px;border-radius:99px;font-size:12px;font-weight:800;font-family:'Poppins',sans-serif;white-space:nowrap;cursor:pointer}.tab-btn.active{background:var(--navy);color:#fff}
+.card{position:relative;z-index:2;margin:0 16px 12px;background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:16px;box-shadow:0 8px 24px rgba(7,27,61,.06)}
+.template-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.template-title{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:var(--navy);line-height:1.1}.template-sub{margin-top:4px;font-size:12px;line-height:1.55;color:var(--sub)}
+.status-chip{flex-shrink:0;display:inline-flex;align-items:center;gap:5px;background:var(--yellowLt);color:#9A6700;border:1px solid rgba(253,186,45,.45);padding:6px 10px;border-radius:99px;font-size:10.5px;font-weight:800}
+.activity-card{margin-top:14px;padding:14px;border-radius:16px;background:linear-gradient(180deg,#FBFCFE 0%,#F7FAFD 100%);border:1.5px solid var(--border)}
+.activity-title{display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--navy)}.activity-badge{width:28px;height:28px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--teal);color:#fff;font-size:13px;font-weight:900}
+.activity-points{margin-top:10px;display:grid;gap:8px}.point{display:flex;gap:8px;font-size:12px;line-height:1.55;color:var(--sub)}.point b{color:var(--navy)}.point-dot{width:9px;height:9px;border-radius:50%;background:var(--orange);margin-top:5px;flex:0 0 9px}
+.mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;background:#F5F7FA;padding:5px;border-radius:15px}.mode-btn{border:none;border-radius:12px;padding:10px 8px;font-size:12px;font-weight:800;font-family:'Poppins',sans-serif;color:var(--sub);background:transparent;cursor:pointer}.mode-btn.active{color:var(--navy);background:var(--white);box-shadow:0 3px 12px rgba(7,27,61,.08)}
+.sample-section,.form-section{display:none}.sample-section.active,.form-section.active{display:block}.sample-box{margin-top:14px;background:var(--tealLt);border:1.5px solid rgba(32,199,189,.45);border-radius:16px;padding:14px}.sample-title{font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--navy);margin-bottom:8px}.sample-box p,.sample-box li{font-size:12px;line-height:1.55;color:var(--sub)}.sample-box ul{padding-left:18px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{margin-bottom:12px}label{display:block;font-size:12px;font-weight:800;color:var(--navy);margin-bottom:6px}
+input,textarea,select{width:100%;border:1.5px solid var(--border);border-radius:14px;padding:12px 13px;font-family:'Poppins',sans-serif;font-size:13px;color:var(--navy);outline:none;background:var(--white)}
+textarea{min-height:92px;resize:vertical;line-height:1.55}input:focus,textarea:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(32,199,189,.14)}
+.empathy-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.gain-pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.quad-card,.side-card{border:1.5px solid var(--border);border-radius:18px;background:var(--white);overflow:hidden}.quad-header{display:flex;align-items:center;justify-content:space-between;padding:11px 12px 9px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;color:var(--navy);border-bottom:1px solid var(--border)}
+.quad-header span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:10px;color:#fff;font-size:12px;font-weight:900}.q-says span{background:var(--teal)}.q-thinks span{background:var(--pink)}.q-does span{background:var(--yellow);color:var(--navy)}.q-feels span{background:var(--orange)}
+.quad-card textarea{border:none;border-radius:0;min-height:140px;box-shadow:none;padding:12px}.side-head{padding:11px 12px 9px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;color:var(--navy);border-bottom:1px solid var(--border)}.side-head.orange{background:var(--orangeLt)}.side-head.yellow{background:var(--yellowLt)}.side-card textarea{border:none;border-radius:0;min-height:120px;box-shadow:none}
+.empathy-matrix-sample{margin-top:12px;border:2px solid rgba(7,27,61,.12);border-radius:18px;overflow:hidden;background:#fff}.matrix-user{padding:12px 14px;background:var(--yellowLt);border-bottom:1px solid var(--border);font-size:12px;font-weight:700;color:var(--navy)}.matrix-grid{display:grid;grid-template-columns:1fr 1fr}.matrix-cell{min-height:132px;padding:12px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}.matrix-grid .matrix-cell:nth-child(2n){border-right:none}.matrix-cell h4{font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;color:var(--navy);margin-bottom:6px}.matrix-cell p{font-size:12px;line-height:1.55;color:var(--sub)}
+.small-tag{display:inline-flex;padding:4px 8px;border-radius:999px;background:#F3F6FA;color:var(--navy);font-size:10px;font-weight:800;margin-left:6px}.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.pill{padding:7px 10px;border-radius:999px;background:#F6F8FB;color:var(--navy);font-size:11px;font-weight:800;border:1px solid var(--border)}
+.tip-box{margin-top:12px;padding:12px;border-radius:16px;background:var(--orangeLt);border:1.5px solid rgba(255,99,61,.18)}.tip-title{font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;color:var(--navy);margin-bottom:4px}.tip-box p{font-size:12px;line-height:1.55;color:var(--sub)}
+.checklist{margin-top:12px;background:var(--yellowLt);border:1.5px solid rgba(253,186,45,.35);border-radius:16px;padding:13px}.checklist-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;color:var(--navy);margin-bottom:8px}.check-row{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--sub);line-height:1.4;margin:7px 0}.check-row input{width:16px;height:16px;margin-top:1px;accent-color:var(--teal)}
+.action-row{display:flex;gap:9px;margin-top:14px}.btn{border:none;border-radius:99px;padding:13px 15px;font-size:13px;font-weight:800;font-family:'Poppins',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}.btn.secondary{flex:1;background:var(--white);color:var(--navy);border:1.5px solid var(--border)}.btn.primary{flex:1.4;background:var(--navy);color:#fff;box-shadow:0 6px 18px rgba(7,27,61,.18)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);width:min(430px,calc(100vw - 32px));background:var(--navy);color:#fff;padding:14px 16px;border-radius:18px;font-size:13px;font-weight:700;line-height:1.4;box-shadow:0 10px 30px rgba(7,27,61,.24);opacity:0;pointer-events:none;transition:.25s ease;z-index:50}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.footer-note{padding:4px 20px 22px;color:var(--sub);font-size:11px;line-height:1.5;text-align:center}.hidden{display:none}
+
+  /* Back button injected by Smart DT V3 */
+  .sdtv3-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px 6px;
+    position: relative;
+    z-index: 10;
+  }
+  .sdtv3-back a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #071B3D;
+    text-decoration: none;
+    background: #F0F2F5;
+    border-radius: 99px;
+    padding: 8px 14px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .sdtv3-back a:hover { background: #E2E6EC; }
+
+</style>
+</head>
+<body>
+<div class="frame">
+  
+  <div class="sdtv3-back">
+    <a href="phase01-empathy.html" aria-label="Back to Empathy Phase">
+      ← Empathy Phase
+    </a>
+  </div>
+  <div class="blob-pink"></div><div class="dot-grid"></div>
+  <header class="topbar">
+    <div class="brand"><div class="logo-svg">
+      <svg width="28" height="32" viewBox="0 0 28 32" fill="none" aria-hidden="true"><ellipse cx="14" cy="13" rx="8" ry="8" fill="#FF633D"/><path d="M10 19h8v2.5c0 .8-.7 1.5-1.5 1.5h-5c-.8 0-1.5-.7-1.5-1.5V19z" fill="#E0D8CC"/><path d="M12 23.5h4V25a2 2 0 01-2 2 2 2 0 01-2-2v-1.5z" fill="#C8C0B4"/><path d="M14 6.5V4.5M9 7.5L7.5 6M19 7.5L20.5 6M7 13H5M23 13H21" stroke="#FDBA2D" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="rgba(255,255,255,.35)"/></svg>
+    </div><div class="brand-name">Smart DT<br>Project</div></div>
+    <div class="tb-pill"><span style="color:var(--orange)">01</span> / 05</div>
+  </header>
+
+  <section class="hero">
+    <div class="phase-badge">01</div>
+    <h1><span>Empathy</span><br>Templates</h1>
+    <div class="accent-line"></div>
+    <p>Explore your users deeply through guided Phase 01 activities. Each template includes clearer activity prompts, sample views, and app-friendly interaction.</p>
+  </section>
+
+  <section class="phase-flow" aria-label="Phase 01 activity flow">
+    <div class="flow-card"><div class="flow-num">1</div><div class="flow-title">Prepare<br>Interview</div></div>
+    <div class="flow-card"><div class="flow-num">2</div><div class="flow-title">Map User<br>Experience</div></div>
+    <div class="flow-card"><div class="flow-num">3</div><div class="flow-title">Build<br>Persona</div></div>
+    <div class="flow-card"><div class="flow-num">4</div><div class="flow-title">Summarise<br>Needs</div></div>
+  </section>
+
+  <nav class="template-tabs" aria-label="Phase 01 templates">
+    <button class="tab-btn active" onclick="showTemplate('t01', this)">T01 Interview</button>
+    <button class="tab-btn" onclick="showTemplate('t02', this)">T02 Empathy Map</button>
+    <button class="tab-btn" onclick="showTemplate('t03', this)">T03 Persona</button>
+    <button class="tab-btn" onclick="showTemplate('t04', this)">T04 Needs</button>
+  </nav>
+
+  <section id="t01" class="template-panel card">
+    <div class="template-head"><div><div class="template-title">T01 Interview Guide</div><div class="template-sub">Prepare and conduct interviews with at least 3 real target users.</div></div><div class="status-chip" id="status-t01">Not Started</div></div>
+    <div class="activity-card"><div class="activity-title"><div class="activity-badge">A1</div>Interactive Activity</div><div class="activity-points"><div class="point"><div class="point-dot"></div><div><b>Before:</b> decide the user group, location, and 5 open-ended questions.</div></div><div class="point"><div class="point-dot"></div><div><b>During:</b> listen actively, ask follow-up questions, and avoid suggesting answers.</div></div><div class="point"><div class="point-dot"></div><div><b>After:</b> record 3 key insights while the discussion is fresh.</div></div></div></div>
+    <div class="mode-switch"><button class="mode-btn active" onclick="setMode('t01','sample',this)">View Sample</button><button class="mode-btn" onclick="setMode('t01','form',this)">Fill Template</button></div>
+    <div class="sample-section active" data-panel="t01-sample"><div class="sample-box"><div class="sample-title">Sample Interview Context</div><p><b>Target user:</b> Student who often buys lunch at the canteen.</p><p><b>Good question:</b> “Tell me about your experience during peak lunch time.”</p><ul><li>Avoid yes/no questions.</li><li>Use prompts such as “Why?”, “Can you explain more?”, “What happened next?”</li><li>Observe behaviour, body language, and repeated complaints.</li></ul></div><div class="pill-row"><div class="pill">Open-ended questions</div><div class="pill">Follow-up prompts</div><div class="pill">Observation notes</div></div></div>
+    <div class="form-section" data-panel="t01-form">
+      <div class="field-grid"><div class="field"><label>Date / Time</label><input name="dateTime" placeholder="e.g. 12 May, 1.00 pm"></div><div class="field"><label>Location</label><input name="location" placeholder="e.g. POLIPD canteen"></div><div class="field"><label>Interviewee Code</label><input name="code" placeholder="e.g. U01"></div><div class="field"><label>Target User Type</label><input name="userType" placeholder="e.g. frequent canteen user"></div></div>
+      <div class="field"><label>Warm-up Questions</label><textarea name="warmup" placeholder="Write 2 warm-up questions..."></textarea></div><div class="field"><label>5 Main Interview Questions</label><textarea name="mainQuestions" placeholder="1.&#10;2.&#10;3.&#10;4.&#10;5."></textarea></div><div class="field"><label>Observation Notes</label><textarea name="observations" placeholder="What did the user do, hesitate about, complain about, or repeat?"></textarea></div><div class="field"><label>3 Key Insights</label><textarea name="insights" placeholder="Insight 1:&#10;Insight 2:&#10;Insight 3:"></textarea></div>
+      <div class="tip-box"><div class="tip-title">Smart Tip</div><p>Capture direct quotes. Real user words are useful later when writing your empathy map and persona.</p></div>
+      <div class="checklist"><div class="checklist-title">Completion Checklist</div><label class="check-row"><input type="checkbox"> At least 3 real target users interviewed.</label><label class="check-row"><input type="checkbox"> Questions are open-ended and not leading.</label><label class="check-row"><input type="checkbox"> 3 key insights recorded.</label></div>
+      <div class="action-row"><button class="btn secondary" onclick="saveDraft('t01')">Save Draft</button><button class="btn primary" onclick="submitTemplate('t01')">Submit</button></div>
+    </div>
+  </section>
+
+  <section id="t02" class="template-panel card hidden">
+    <div class="template-head"><div><div class="template-title">T02 Empathy Map</div><div class="template-sub">Original 4-quadrant format: Says, Thinks, Does and Feels.</div></div><div class="status-chip" id="status-t02">Not Started</div></div>
+    <div class="activity-card"><div class="activity-title"><div class="activity-badge">A2</div>Interactive Activity</div><div class="activity-points"><div class="point"><div class="point-dot"></div><div><b>SAYS:</b> write direct quotes from interviews.</div></div><div class="point"><div class="point-dot"></div><div><b>THINKS:</b> infer thoughts based on behaviour and responses.</div></div><div class="point"><div class="point-dot"></div><div><b>DOES and FEELS:</b> capture actions and emotions to reveal pains and gains.</div></div></div></div>
+    <div class="mode-switch"><button class="mode-btn active" onclick="setMode('t02','sample',this)">View Sample</button><button class="mode-btn" onclick="setMode('t02','form',this)">Fill Template</button></div>
+    <div class="sample-section active" data-panel="t02-sample">
+      <div class="sample-box"><div class="sample-title">Sample Empathy Map — 4 Quadrant Table</div>
+        <div class="empathy-matrix-sample">
+          <div class="matrix-user"><b>User:</b> Canteen customer during peak hour <span class="small-tag">Original empathy map layout</span></div>
+          <div class="matrix-grid">
+            <div class="matrix-cell"><h4>SAYS</h4><p>“The queue is too long.”<br>“I only have a short break.”</p></div>
+            <div class="matrix-cell"><h4>THINKS</h4><p>“I might be late for class.”<br>“There should be a faster way.”</p></div>
+            <div class="matrix-cell"><h4>DOES</h4><p>Skips lunch, buys snacks, or leaves the canteen.</p></div>
+            <div class="matrix-cell"><h4>FEELS</h4><p>Frustrated, rushed, and disappointed.</p></div>
+          </div>
+        </div>
+        <div class="gain-pain-grid"><div class="side-card"><div class="side-head orange">Pains</div><textarea readonly>Long queue, wasted time, limited break.</textarea></div><div class="side-card"><div class="side-head yellow">Gains</div><textarea readonly>Faster service, better planning, less stress.</textarea></div></div>
+      </div>
+    </div>
+    <div class="form-section" data-panel="t02-form">
+      <div class="field"><label>User Identity / Persona</label><input name="identity" placeholder="Who is this user?"></div>
+      <div class="empathy-grid">
+        <div class="quad-card q-says"><div class="quad-header">SAYS <span>01</span></div><textarea name="says" placeholder="Write direct quotes from the user..."></textarea></div>
+        <div class="quad-card q-thinks"><div class="quad-header">THINKS <span>02</span></div><textarea name="thinks" placeholder="What might the user be thinking?"></textarea></div>
+        <div class="quad-card q-does"><div class="quad-header">DOES <span>03</span></div><textarea name="does" placeholder="What does the user do in this situation?"></textarea></div>
+        <div class="quad-card q-feels"><div class="quad-header">FEELS <span>04</span></div><textarea name="feels" placeholder="What emotions are visible or implied?"></textarea></div>
+      </div>
+      <div class="gain-pain-grid"><div class="side-card"><div class="side-head orange">Pains</div><textarea name="pains" placeholder="Problems, frustrations, barriers..."></textarea></div><div class="side-card"><div class="side-head yellow">Gains</div><textarea name="gains" placeholder="Needs, hopes, desired outcomes..."></textarea></div></div>
+      <div class="tip-box"><div class="tip-title">Smart Tip</div><p>Use evidence from T01. “Says” should come from direct quotes, while “Thinks” and “Feels” can be inferred from your observation and interview notes.</p></div>
+      <div class="checklist"><div class="checklist-title">Completion Checklist</div><label class="check-row"><input type="checkbox"> All 4 empathy quadrants completed.</label><label class="check-row"><input type="checkbox"> Pains and gains are based on interview evidence.</label><label class="check-row"><input type="checkbox"> The map reflects one clear target user.</label></div>
+      <div class="action-row"><button class="btn secondary" onclick="saveDraft('t02')">Save Draft</button><button class="btn primary" onclick="submitTemplate('t02')">Submit</button></div>
+    </div>
+  </section>
+
+  <section id="t03" class="template-panel card hidden">
+    <div class="template-head"><div><div class="template-title">T03 Persona Template</div><div class="template-sub">Create one realistic target user profile based on evidence.</div></div><div class="status-chip" id="status-t03">Not Started</div></div>
+    <div class="activity-card"><div class="activity-title"><div class="activity-badge">A3</div>Interactive Activity</div><div class="activity-points"><div class="point"><div class="point-dot"></div><div><b>Combine findings:</b> use repeated patterns from multiple users.</div></div><div class="point"><div class="point-dot"></div><div><b>Humanise the user:</b> add a believable quote, clear goals, and real frustrations.</div></div></div></div>
+    <div class="mode-switch"><button class="mode-btn active" onclick="setMode('t03','sample',this)">View Sample</button><button class="mode-btn" onclick="setMode('t03','form',this)">Fill Template</button></div>
+    <div class="sample-section active" data-panel="t03-sample"><div class="sample-box"><div class="sample-title">Sample Persona</div><p><b>Name:</b> Aina, 20, Diploma student</p><p><b>Quote:</b> “I need lunch to be fast because my break is short.”</p><p><b>Goals:</b> Buy lunch quickly, avoid missing class, spend less.</p><p><b>Pain points:</b> Long queue, limited choices, crowded space.</p></div></div>
+    <div class="form-section" data-panel="t03-form"><div class="field-grid"><div class="field"><label>Persona Name</label><input name="personaName" placeholder="e.g. Aina"></div><div class="field"><label>Age / Programme</label><input name="ageProgramme" placeholder="e.g. 20, DPR"></div></div><div class="field"><label>Persona Quote</label><input name="quote" placeholder="What would this user say?"></div><div class="field"><label>Background</label><textarea name="background" placeholder="Describe the user's daily context and situation."></textarea></div><div class="field-grid"><div class="field"><label>Goals</label><textarea name="goals" placeholder="1.&#10;2.&#10;3."></textarea></div><div class="field"><label>Pain Points</label><textarea name="painPoints" placeholder="1.&#10;2.&#10;3."></textarea></div></div><div class="field"><label>Solution Need</label><textarea name="solutionNeed" placeholder="What kind of help does this user really need?"></textarea></div><div class="tip-box"><div class="tip-title">Smart Tip</div><p>Keep the persona specific, but evidence-based. If it sounds too general, revisit your empathy map and user needs summary.</p></div><div class="checklist"><div class="checklist-title">Completion Checklist</div><label class="check-row"><input type="checkbox"> Persona is based on patterns, not imagination.</label><label class="check-row"><input type="checkbox"> Goals and pain points are clear.</label></div><div class="action-row"><button class="btn secondary" onclick="saveDraft('t03')">Save Draft</button><button class="btn primary" onclick="submitTemplate('t03')">Submit</button></div></div>
+  </section>
+
+  <section id="t04" class="template-panel card hidden">
+    <div class="template-head"><div><div class="template-title">T04 User Needs Summary</div><div class="template-sub">Summarise key findings, patterns and needs with evidence.</div></div><div class="status-chip" id="status-t04">Not Started</div></div>
+    <div class="activity-card"><div class="activity-title"><div class="activity-badge">A4</div>Interactive Activity</div><div class="activity-points"><div class="point"><div class="point-dot"></div><div><b>Look for patterns:</b> identify repeated problems or needs across users.</div></div><div class="point"><div class="point-dot"></div><div><b>Support with evidence:</b> every need should link to quotes, behaviour, or observations.</div></div></div></div>
+    <div class="mode-switch"><button class="mode-btn active" onclick="setMode('t04','sample',this)">View Sample</button><button class="mode-btn" onclick="setMode('t04','form',this)">Fill Template</button></div>
+    <div class="sample-section active" data-panel="t04-sample"><div class="sample-box"><div class="sample-title">Sample User Needs Summary</div><p><b>Pattern:</b> Many students avoid the canteen during peak time.</p><p><b>Need:</b> Students need a faster way to plan or buy lunch.</p><p><b>Evidence:</b> 3 out of 4 users mentioned long queues and short break time.</p></div></div>
+    <div class="form-section" data-panel="t04-form"><div class="field-grid"><div class="field"><label>Interview Count</label><input name="count" placeholder="e.g. 3 users"></div><div class="field"><label>Research Period</label><input name="period" placeholder="e.g. Week 3"></div></div><div class="field"><label>Research Context</label><input name="context" placeholder="Where and when did you collect data?"></div><div class="field"><label>Patterns Found</label><textarea name="patterns" placeholder="Pattern 1:&#10;Pattern 2:&#10;Pattern 3:"></textarea></div><div class="field"><label>Top User Needs + Evidence</label><textarea name="needsEvidence" placeholder="Need 1 + Evidence:&#10;Need 2 + Evidence:&#10;Need 3 + Evidence:"></textarea></div><div class="field"><label>Surprises / Unexpected Findings</label><textarea name="surprises" placeholder="What surprised your team?"></textarea></div><div class="tip-box"><div class="tip-title">Smart Tip</div><p>Write needs in a user-centred way. Example: “Students need a faster lunch process so they can return to class on time.”</p></div><div class="checklist"><div class="checklist-title">Completion Checklist</div><label class="check-row"><input type="checkbox"> At least 3 users included.</label><label class="check-row"><input type="checkbox"> Needs are supported with evidence.</label><label class="check-row"><input type="checkbox"> Team is ready for Define phase.</label></div><div class="action-row"><button class="btn secondary" onclick="saveDraft('t04')">Save Draft</button><button class="btn primary" onclick="submitTemplate('t04')">Submit</button></div></div>
+  </section>
+
+  <div class="footer-note">Suggested app flow: Quick Info → Activity Guide → View Sample → Fill Template → Save Draft → Submit</div>
+</div>
+<div class="toast" id="toast">Saved.</div>
+<script>
+const APP_SCRIPT_URL = ""; 
+function showTemplate(id, btn){document.querySelectorAll('.template-panel').forEach(p=>p.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function setMode(templateId,mode,btn){const section=document.getElementById(templateId);section.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');section.querySelectorAll('.sample-section').forEach(s=>s.classList.remove('active'));section.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));const target=section.querySelector(`[data-panel="${templateId}-${mode}"]`);if(target)target.classList.add('active')}
+function collectData(templateId){const section=document.getElementById(templateId);const fields=section.querySelectorAll('input[name], textarea[name], select[name]');const data={templateId,phase:"Phase 01 Empathy",status:"In Progress",timestamp:new Date().toISOString()};fields.forEach(field=>data[field.name]=field.value.trim());return data}
+function updateStatus(templateId,status){const chip=document.getElementById(`status-${templateId}`);chip.textContent=status;if(status==="Submitted"){chip.style.background="var(--greenLt)";chip.style.color="#166534";chip.style.borderColor="rgba(34,197,94,.35)"}else if(status==="In Progress"){chip.style.background="var(--tealLt)";chip.style.color="var(--tealDk)";chip.style.borderColor="rgba(32,199,189,.45)"}else{chip.style.background="var(--yellowLt)";chip.style.color="#9A6700";chip.style.borderColor="rgba(253,186,45,.45)"}}
+function saveDraft(templateId){const data=collectData(templateId);data.status="In Progress";localStorage.setItem(`smartdt_${templateId}`,JSON.stringify(data));updateStatus(templateId,"In Progress");showToast(`${templateId.toUpperCase()} draft saved on this device.`)}
+async function submitTemplate(templateId){const data=collectData(templateId);data.status="Submitted";localStorage.setItem(`smartdt_${templateId}`,JSON.stringify(data));updateStatus(templateId,"Submitted");if(APP_SCRIPT_URL){try{await fetch(APP_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});showToast(`${templateId.toUpperCase()} submitted to Google Sheets.`)}catch(error){showToast(`Saved locally, but Google Sheets submission failed.`)}}else{showToast(`${templateId.toUpperCase()} submitted locally. Add Apps Script URL to send to Google Sheets.`)}}
+function showToast(message){const toast=document.getElementById('toast');toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2800)}
+function restoreDrafts(){["t01","t02","t03","t04"].forEach(id=>{const raw=localStorage.getItem(`smartdt_${id}`);if(!raw)return;try{const data=JSON.parse(raw);const section=document.getElementById(id);Object.entries(data).forEach(([key,value])=>{const field=section.querySelector(`[name="${key}"]`);if(field)field.value=value});updateStatus(id,data.status||"In Progress")}catch(e){}})}
+restoreDrafts();
+</script>
+</body>
+</html>

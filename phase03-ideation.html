@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"/>
+<title>Phase 03 Ideation — Smart DT Project</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="css/smartdt.css" rel="stylesheet"/>
+</head>
+<body data-page="learn" data-phase="03">
+<div class="app">
+<header class="header">
+<a class="brand" href="dashboard.html"><span aria-hidden="true" class="brand-logo brand-logo-inline"><img alt="" decoding="async" loading="lazy" src="https://iili.io/Cd3i8QV.png"/></span><span class="brand-text">Smart DT<br/>Project</span></a>
+<div class="header-actions"><span class="pill"><b style="color:var(--orange)">03</b> / 05</span><span class="pill lang-pill"><span class="pill-symbol" aria-hidden="true">🌐</span> EN</span><button aria-label="Menu" class="icon-btn menu-lines"><span></span><span></span><span></span></button></div>
+</header>
+<main class="page phase-page">
+<section class="hero-card compact"><img alt="Ideation phase header" src="https://iili.io/CdztOpj.png"/></section>
+<section class="intro-card"><p class="eyebrow">Phase 03 · Ideation</p><h1 class="intro-title">Generate many ideas before choosing the <span class="teal">best solution.</span></h1><p class="intro-text">In this phase, your team uses the HMW question from Define to brainstorm widely, apply SCAMPER, evaluate ideas and justify one final concept before prototyping.</p></section>
+<div class="tabbar" role="tablist"><button class="tab active" data-tab="quickInfo">Quick Info</button><button class="tab" data-tab="quizPanel">Quiz</button><button class="tab" data-tab="templatesPanel">Templates</button></div>
+<section class="panel active" id="quickInfo">
+<div class="card"><h2 class="section-title" style="margin-top:0">What is Ideation?</h2><p class="section-sub">Ideation is the creative phase where your team generates many possible solutions. The goal is not to find the perfect idea immediately, but to explore widely before selecting the strongest direction.</p></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">What students need to do</h2><ul class="list"><li>Use the best HMW question from T06 as the brainstorming focus.</li><li>Generate at least 20 ideas without judging them too early.</li><li>Use SCAMPER to improve, combine or transform ideas.</li><li>Score the top 5 ideas using the Idea Selection Matrix.</li><li>Justify one final idea and submit Supervisor Gate 2 before Prototyping.</li></ul></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">Common mistakes to avoid</h2><ul class="list"><li>Do not stop after the first "good" idea.</li><li>Do not criticise ideas during brainstorming.</li><li>Do not choose based only on personal preference.</li><li>Do not forget to connect the idea back to the problem statement.</li></ul></div>
+<button class="btn primary full" onclick="document.querySelector('[data-tab=quizPanel]').click()">Start Quick Check Quiz</button>
+</section>
+<section class="panel" id="quizPanel"><div id="quizBox"></div></section>
+<section class="panel" id="templatesPanel">
+<h1 class="section-title phase-title"><span>Ideation</span><br/>Templates</h1>
+<p class="section-sub">Use the Ideation templates to move from HMW question → many ideas → improved ideas → scored ideas → final concept → Supervisor Gate 2.</p>
+<div class="template-steps five">
+<div class="template-step"><span class="step-num">7</span><p>Brainstorm</p></div>
+<div class="template-step"><span class="step-num">8</span><p>SCAMPER</p></div>
+<div class="template-step"><span class="step-num">9</span><p>Matrix</p></div>
+<div class="template-step"><span class="step-num">10</span><p>Justify</p></div>
+<div class="template-step"><span class="step-num">G2</span><p>Gate 2</p></div>
+</div>
+<div class="subtabs ideation-five five">
+<button class="subtab active" data-subtab="t07">T07</button>
+<button class="subtab" data-subtab="t08">T08</button>
+<button class="subtab" data-subtab="t09">T09</button>
+<button class="subtab" data-subtab="t10">T10</button>
+<button class="subtab" data-subtab="gate02">Gate 2</button>
+</div>
+<form id="ideationForm">
+
+<section class="template-panel active" id="t07">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T07 Brainstorming Sheet</h2><p class="section-sub">Generate many ideas from your best HMW question. Quantity first, judgement later.</p></div><span class="status">Start Here</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Activity Introduction</span><h3>What are you going to do?</h3><p>Your team will brainstorm at least 20 possible ideas. During this step, every idea is accepted first. Evaluation happens later in T09.</p><div class="guide-mini-grid"><div><b>Input</b><span>Best HMW from T06</span></div><div><b>Target</b><span>20+ ideas</span></div><div><b>Output</b><span>Top 5 ideas</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">A7</span>Brainstorm Rules</p><p class="bullet">No judging during idea generation.</p><p class="bullet">Build on each other's ideas using "Yes, and…".</p><p class="bullet">Write fast and aim for quantity.</p><p class="bullet">Wild ideas are allowed because they may spark better ideas.</p></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T07 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Brainstorm</span>
+        <h3>HMW: Help students decide where to buy lunch before peak-hour rush</h3>
+        <div class="sample-tip"><b>Ideas:</b> crowd-level display, pre-order lunch slot, canteen queue camera, quick lunch menu board, student lunch planner, Telegram lunch alert.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample answer guide</div><p><code>HMW:</code> How might we help students decide where to buy lunch before peak-hour rush?<br><code>Idea:</code> Show live crowd level for each food stall before students leave class.</p></div>
+      <div class="field"><label>HMW Question from T06</label><textarea class="textarea" name="t07_hmw" placeholder="Copy your best HMW question here..."></textarea></div>
+      <div class="field"><label>Brainstorm Ideas</label><textarea class="textarea" name="t07_ideas" placeholder="1. Idea...&#10;2. Idea...&#10;3. Idea...&#10;Continue until at least 20 ideas..."></textarea></div>
+      <div class="field"><label>Top 5 Ideas After Team Voting</label><textarea class="textarea" name="t07_top5" placeholder="1. ...&#10;2. ...&#10;3. ...&#10;4. ...&#10;5. ..."></textarea></div>
+      <div class="template-actions">
+        <button class="btn teal full" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save T07 Brainstorming</button>
+        <button class="btn ghost full" data-next-subtab="t08" type="button">Continue to T08 SCAMPER</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t08">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T08 SCAMPER Prompt Sheet</h2><p class="section-sub">Use SCAMPER to stretch and improve your ideas before choosing.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Activity Introduction</span><h3>What are you going to do?</h3><p>You will examine your top ideas through seven SCAMPER lenses: Substitute, Combine, Adapt, Modify, Put to another use, Eliminate and Reverse.</p><div class="guide-mini-grid"><div><b>Input</b><span>Top ideas from T07</span></div><div><b>Tool</b><span>SCAMPER 7 lenses</span></div><div><b>Output</b><span>Improved ideas</span></div></div></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T08 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample SCAMPER</span>
+        <h3>Improve the crowd-level display idea</h3>
+        <div class="sample-tip"><b>Combine:</b> combine live crowd level with pre-order lunch slots.<br><b>Eliminate:</b> remove complex login for users who only want to check queue level.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample answer guide</div><p><code>Substitute:</code> Replace manual queue checking with student-reported crowd status.<br><code>Combine:</code> Combine crowd status with menu availability.</p></div>
+      <div class="field"><label>Idea to Improve</label><textarea class="textarea" name="t08_idea" placeholder="Choose one idea from T07..."></textarea></div>
+      <div class="field"><label>SCAMPER Notes</label><textarea class="textarea" name="t08_scamper" placeholder="S - Substitute...&#10;C - Combine...&#10;A - Adapt...&#10;M - Modify...&#10;P - Put to another use...&#10;E - Eliminate...&#10;R - Reverse..."></textarea></div>
+      <div class="field"><label>Best Improved Idea</label><textarea class="textarea" name="t08_best" placeholder="Write the strongest improved idea here..."></textarea></div>
+      <div class="template-actions">
+        <button class="btn teal full" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save T08 SCAMPER</button>
+        <button class="btn ghost full" data-next-subtab="t09" type="button">Continue to T09 Matrix</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t09">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T09 Idea Selection Matrix</h2><p class="section-sub">Score top ideas using fair criteria before deciding.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Activity Introduction</span><h3>What are you going to do?</h3><p>You will score your top 5 ideas using feasibility, impact, novelty and cost. This helps the team choose based on evidence rather than preference.</p><div class="guide-mini-grid"><div><b>Input</b><span>Top 5 ideas</span></div><div><b>Criteria</b><span>1–5 score</span></div><div><b>Output</b><span>Best idea</span></div></div></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T09 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Matrix Logic</span>
+        <h3>Live crowd display</h3>
+        <div class="sample-tip"><b>Feasibility:</b> 4 · <b>Impact:</b> 5 · <b>Novelty:</b> 3 · <b>Cost:</b> 4. Total = 16/20.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample answer guide</div><p>Score each idea from 1 to 5. High score means stronger fit. Cost can be scored as 5 = low cost/easy to build.</p></div>
+      <div class="field"><label>Idea Matrix</label><textarea class="textarea" name="t09_matrix" placeholder="Idea 1: ... | Feasibility: ... | Impact: ... | Novelty: ... | Cost: ... | Total: ...&#10;Idea 2: ..."></textarea></div>
+      <div class="field"><label>Highest Scoring Idea</label><textarea class="textarea" name="t09_winner" placeholder="Which idea scored highest and why?"></textarea></div>
+      <div class="template-actions">
+        <button class="btn teal full" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save T09 Matrix</button>
+        <button class="btn ghost full" data-next-subtab="t10" type="button">Continue to T10 Justification</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t10">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T10 Final Idea Justification</h2><p class="section-sub">Explain why your chosen idea deserves to move into Prototype.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Activity Introduction</span><h3>What are you going to do?</h3><p>You will write a clear concept summary, connect it to the user need, list resources and prepare for supervisor review.</p><div class="guide-mini-grid"><div><b>Input</b><span>Winning idea</span></div><div><b>Link</b><span>Problem + needs</span></div><div><b>Output</b><span>Final concept</span></div></div></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T10 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Justification</span>
+        <h3>Smart Lunch Crowd Checker</h3>
+        <div class="sample-tip">This idea helps students decide where to buy lunch before leaving class by showing crowd level and menu availability, reducing wasted walking time.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample answer guide</div><p><code>Idea name:</code> Smart Lunch Crowd Checker<br><code>Why chosen:</code> It directly supports the user need and is feasible for a simple prototype.</p></div>
+      <div class="field"><label>Idea Name</label><input class="input" name="t10_name" placeholder="e.g. Smart Lunch Crowd Checker"/></div>
+      <div class="field"><label>Idea Description</label><textarea class="textarea" name="t10_desc" placeholder="Describe the idea clearly..."></textarea></div>
+      <div class="field"><label>Link to Problem Statement and User Needs</label><textarea class="textarea" name="t10_link" placeholder="Explain how this idea solves the defined problem..."></textarea></div>
+      <div class="field"><label>Resources Needed / Timeline / Challenges</label><textarea class="textarea" name="t10_resources" placeholder="Resources: ...&#10;Timeline: ...&#10;Challenges: ..."></textarea></div>
+      <div class="template-actions">
+        <button class="btn teal full" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save T10 Justification</button>
+        <button class="btn ghost full" data-next-subtab="gate02" type="button">Continue to Gate 2</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="gate02">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>Supervisor Gate 2</h2><p class="section-sub">Submit your selected idea for review before Prototyping.</p></div><span class="status">Gate Check</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Why this gate matters</span><h3>What will your supervisor check?</h3><p>Your supervisor checks whether your final idea is feasible, connected to the defined problem and supported by the selection matrix.</p><div class="guide-mini-grid"><div><b>Checks</b><span>T07–T10 quality</span></div><div><b>Blocks</b><span>Phase 04 Prototype</span></div><div><b>Outcome</b><span>Approved / revise</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">G2</span>Pre-Submission Checklist</p><p class="bullet">T07 Brainstorming — 20+ ideas generated.</p><p class="bullet">T08 SCAMPER — all 7 lenses attempted.</p><p class="bullet">T09 Matrix — top 5 ideas scored.</p><p class="bullet">T10 Justification — chosen idea documented.</p><p class="bullet">Team agrees on the final idea.</p></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="Gate 2 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Gate 2 Submission Note</span>
+        <h3>Ready for supervisor review</h3>
+        <div class="sample-tip">Our team has completed T07–T10. We would like feedback on whether our selected idea is feasible and clearly connected to the Define problem before Prototyping.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample submission note guide</div><p>Our team has completed T07–T10. We would like feedback on whether our selected idea is feasible and clearly connected to the Define problem before Prototyping.</p></div>
+      <div class="field"><label>Supervisor Name</label><input class="input" name="gate02_supervisor" placeholder="e.g. Dr. Faridah"/></div>
+      <div class="field"><label>Submission Notes to Supervisor</label><textarea class="textarea" name="gate02_notes" placeholder="Briefly explain what your team completed and what you want your supervisor to check..."></textarea></div>
+      <div class="action-row">
+        <button class="btn ghost" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save</button>
+        <button class="btn ghost" data-print type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0hQ4.png"/>Print</button>
+        <button class="btn primary" data-submit-phase type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJgMhp1.png"/>Submit Gate 2</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</form>
+</section>
+</main>
+<nav aria-label="Main navigation" class="bottom-nav">
+<a class="nav-item" data-nav="dashboard" href="dashboard.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3ksWu.png"/><span class="nav-label">Dashboard</span></a>
+<a class="nav-item active" data-nav="learn" href="phase03-ideation.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3wdpn.png"/><span class="nav-label">Learn</span></a>
+<a class="nav-item" data-nav="projects" href="projects.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3kixe.png"/><span class="nav-label">Projects</span></a>
+<a class="nav-item" data-nav="progress" href="progress.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k4O7.png"/><span class="nav-label">Progress</span></a>
+<a class="nav-item" data-nav="profile" href="profile.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k6b9.png"/><span class="nav-label">Profile</span></a>
+</nav>
+</div>
+<script src="js/smartdt-assets.js"></script><script src="js/smartdt.js"></script>
+</body>
+</html>

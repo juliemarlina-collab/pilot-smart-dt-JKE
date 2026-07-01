@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"/>
+<title>Phase 04 Prototype — Smart DT Project</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="css/smartdt.css" rel="stylesheet"/>
+</head>
+<body data-page="learn" data-phase="04">
+<div class="app">
+<header class="header">
+<a class="brand" href="dashboard.html"><span aria-hidden="true" class="brand-logo brand-logo-inline"><img alt="" decoding="async" loading="lazy" src="https://iili.io/Cd3i8QV.png"/></span><span class="brand-text">Smart DT<br/>Project</span></a>
+<div class="header-actions"><span class="pill"><b style="color:var(--orange)">04</b> / 05</span><span class="pill lang-pill"><span class="pill-symbol" aria-hidden="true">🌐</span> EN</span><button aria-label="Menu" class="icon-btn menu-lines"><span></span><span></span><span></span></button></div>
+</header>
+<main class="page phase-page">
+<section class="hero-card compact"><img alt="Prototype phase header" src="https://iili.io/CdztLDv.png"/></section>
+<section class="intro-card"><p class="eyebrow">Phase 04 · Prototype</p><h1 class="intro-title">Build a simple version to <span class="teal">test your idea.</span></h1><p class="intro-text">In this phase, your team builds a low-fidelity prototype, records versions, uploads evidence and prepares for user testing in Phase 05.</p></section>
+<div class="tabbar" role="tablist"><button class="tab active" data-tab="quickInfo">Quick Info</button><button class="tab" data-tab="quizPanel">Quiz</button><button class="tab" data-tab="templatesPanel">Templates</button></div>
+<section class="panel active" id="quickInfo">
+<div class="card"><h2 class="section-title" style="margin-top:0">What is Prototype?</h2><p class="section-sub">Prototyping is where your team builds a quick, simple version of the final idea. The goal is not perfection — it is making the idea testable so real users can react to something concrete.</p></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">What students need to do</h2><ul class="list"><li>Plan the prototype type, materials, roles and success criteria using T11.</li><li>Build and document at least 3 prototype versions in T12.</li><li>Upload or link prototype evidence in T13.</li><li>Complete the Prototype Readiness Check before Phase 05.</li></ul></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">Common mistakes to avoid</h2><ul class="list"><li>Do not build the final product. Build just enough to test.</li><li>Do not skip version documentation. Record every change.</li><li>Do not use complex tools when paper or Canva works fine.</li><li>Do not move to testing without evidence of what was built.</li></ul></div>
+<button class="btn primary full" onclick="document.querySelector('[data-tab=quizPanel]').click()">Start Quick Check Quiz</button>
+</section>
+<section class="panel" id="quizPanel"><div id="quizBox"></div></section>
+<section class="panel" id="templatesPanel">
+<h1 class="section-title phase-title"><span>Prototype</span><br/>Templates</h1>
+<p class="section-sub">Use the Prototype templates to move from plan → build → version log → evidence → readiness check before Phase 05 Test.</p>
+<div class="template-steps four">
+<div class="template-step"><span class="step-num">11</span><p>Plan</p></div>
+<div class="template-step"><span class="step-num">12</span><p>Version Log</p></div>
+<div class="template-step"><span class="step-num">13</span><p>Evidence</p></div>
+<div class="template-step"><span class="step-num">✓</span><p>Readiness</p></div>
+</div>
+<div class="subtabs prototype-four four">
+<button class="subtab active" data-subtab="t11">T11 Plan</button>
+<button class="subtab" data-subtab="t12">T12 Versions</button>
+<button class="subtab" data-subtab="t13">T13 Evidence</button>
+<button class="subtab" data-subtab="ready04">Readiness</button>
+</div>
+<form id="prototypeForm">
+
+<section class="template-panel active" id="t11">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T11 Prototype Plan</h2><p class="section-sub">Plan what your team will build before starting. Keep it simple, quick and linked to your final idea.</p></div><span class="status">Start Here</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Activity Introduction</span><h3>What are you going to do?</h3><p>Your team will decide the prototype type, materials, roles and success criteria. This prevents the team from building randomly.</p><div class="guide-mini-grid"><div><b>Input</b><span>Final idea from T10</span></div><div><b>Build</b><span>Low-fidelity first</span></div><div><b>Output</b><span>Clear build plan</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">A11</span>Prototype Planning Rules</p><p class="bullet">Choose the simplest way to show how the idea works.</p><p class="bullet">List only materials your team can realistically access.</p><p class="bullet">Assign roles so everyone knows what to do.</p><p class="bullet">Write success criteria before you test.</p></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T11 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Prototype Plan</span>
+        <h3>Smart Lunch Crowd Checker</h3>
+        <div class="sample-tip"><b>Type:</b> digital low-fidelity mock-up.<br><b>Demonstrates:</b> students can see crowd level before leaving class.<br><b>Materials:</b> Canva/Figma screens, phone preview, printed user flow.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample answer guide</div><p><code>Prototype name:</code> Smart Lunch Crowd Checker<br><code>Type:</code> Digital mock-up<br><code>Success criteria:</code> Users can understand which stall is less crowded within 10 seconds.</p></div>
+      <div class="field"><label>Prototype Name</label><input class="input" name="t11_name" placeholder="e.g. Smart Lunch Crowd Checker"/></div>
+      <div class="mini-row"><div class="field"><label>Prototype Type</label><input class="input" name="t11_type" placeholder="Paper / Digital / Physical"/></div><div class="field"><label>Timeline</label><input class="input" name="t11_timeline" placeholder="e.g. 2–5 June 2026"/></div></div>
+      <div class="field"><label>What it Demonstrates</label><textarea class="textarea" name="t11_demo" placeholder="What part of the idea will users be able to see or try?"></textarea></div>
+      <div class="field"><label>Link to Problem Statement</label><textarea class="textarea" name="t11_problem_link" placeholder="Explain how this prototype answers the problem from Define."></textarea></div>
+      <div class="field"><label>Materials / Tools Needed</label><textarea class="textarea" name="t11_materials" placeholder="e.g. paper, markers, phone, Canva mock-up, cardboard, Google Form..."></textarea></div>
+      <div class="field"><label>Team Roles</label><textarea class="textarea" name="t11_roles" placeholder="Builder: ...&#10;Designer: ...&#10;Documenter: ..."></textarea></div>
+      <div class="field"><label>Success Criteria</label><textarea class="textarea" name="t11_success" placeholder="How will you know the prototype is ready to test?"></textarea></div>
+      <div class="template-actions">
+        <button class="btn teal full" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save T11 Prototype Plan</button>
+        <button class="btn ghost full" data-next-subtab="t12" type="button">Continue to T12 Version Log</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t12">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T12 Version Log</h2><p class="section-sub">Record what you built, what feedback you received and what your team improved.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Activity Introduction</span><h3>What are you going to do?</h3><p>You will document at least three prototype iterations or improvement notes. The log proves that your prototype improved based on feedback.</p><div class="guide-mini-grid"><div><b>Input</b><span>T11 plan</span></div><div><b>Track</b><span>Feedback + changes</span></div><div><b>Output</b><span>Version evidence</span></div></div></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T12 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Version Log</span>
+        <h3>Version 1 → Version 2</h3>
+        <div class="sample-tip"><b>V1 built:</b> three mobile screens showing food stall crowd level.<br><b>Feedback:</b> users did not understand the colour legend.<br><b>Improvement:</b> added clear labels: Low, Medium, High.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample answer guide</div><p>For every version, write what changed. Avoid vague notes like "improved design". Be specific: "added button label because users were confused".</p></div>
+      <div class="prototype-version-grid">
+        <div class="prototype-version-card"><h4>Version 1</h4><div class="field"><label>Date / Type</label><input class="input" name="t12_v1_meta" placeholder="e.g. 3 June 2026 · Paper sketch"/></div><div class="field"><label>What was built?</label><textarea class="textarea" name="t12_v1_built" placeholder="Describe Version 1..."></textarea></div><div class="field"><label>Feedback received</label><textarea class="textarea" name="t12_v1_feedback" placeholder="What did users/team members say or struggle with?"></textarea></div><div class="field"><label>Improvements planned</label><textarea class="textarea" name="t12_v1_improve" placeholder="What will you change next?"></textarea></div></div>
+        <div class="prototype-version-card"><h4>Version 2</h4><div class="field"><label>Date / Type</label><input class="input" name="t12_v2_meta" placeholder="e.g. 4 June 2026 · Digital mock-up"/></div><div class="field"><label>What was built?</label><textarea class="textarea" name="t12_v2_built" placeholder="Describe Version 2..."></textarea></div><div class="field"><label>Feedback received</label><textarea class="textarea" name="t12_v2_feedback" placeholder="What changed after feedback?"></textarea></div><div class="field"><label>Improvements planned</label><textarea class="textarea" name="t12_v2_improve" placeholder="What will you refine before testing?"></textarea></div></div>
+        <div class="prototype-version-card"><h4>Version 3 / Final Readiness</h4><div class="field"><label>Date / Type</label><input class="input" name="t12_v3_meta" placeholder="e.g. 5 June 2026 · Clickable prototype"/></div><div class="field"><label>What was built?</label><textarea class="textarea" name="t12_v3_built" placeholder="Describe Version 3 or final prototype..."></textarea></div><div class="field"><label>Feedback received</label><textarea class="textarea" name="t12_v3_feedback" placeholder="What final feedback did you receive?"></textarea></div><div class="field"><label>Improvements planned</label><textarea class="textarea" name="t12_v3_improve" placeholder="What is ready for Phase 05 Test?"></textarea></div></div>
+      </div>
+      <div class="template-actions">
+        <button class="btn teal full" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save T12 Version Log</button>
+        <button class="btn ghost full" data-next-subtab="t13" type="button">Continue to T13 Evidence</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t13">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T13 Prototype Evidence</h2><p class="section-sub">Upload or link proof of your prototype so your supervisor can review it clearly.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Activity Introduction</span><h3>What are you going to do?</h3><p>You will attach photos, files or links that prove what your team built. Evidence should be clear enough for another person to understand the prototype without your explanation.</p><div class="guide-mini-grid"><div><b>Accepted</b><span>JPG / PNG / PDF / MP4</span></div><div><b>Link</b><span>Google Drive URL</span></div><div><b>Output</b><span>Evidence record</span></div></div></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T13 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Evidence</span>
+        <h3>Prototype evidence set</h3>
+        <div class="sample-tip"><b>File 1:</b> mobile screen mock-up PNG.<br><b>File 2:</b> short video of user flow.<br><b>Drive link:</b> shared folder containing prototype files and photos.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample answer guide</div><p><code>Description:</code> These files show Version 2 mobile screens and the updated colour legend after feedback from three classmates.</p></div>
+      <div class="evidence-upload-box"><b>Upload Prototype File</b><br/>Use this input for local testing. In the final app, connect it to Google Drive or Apps Script upload.<input name="t13_file" type="file" accept="image/*,.pdf,video/*"/></div>
+      <div class="field"><label>Google Drive / Prototype Link</label><input class="input" name="t13_drive_link" placeholder="Paste shared Google Drive / Canva / Figma / video link here"/></div>
+      <div class="field"><label>Evidence Description</label><textarea class="textarea" name="t13_description" placeholder="Describe what the evidence shows and which version it belongs to."></textarea></div>
+      <div class="activity-box enhanced"><p class="activity-title"><span class="badge">✓</span>Evidence Checklist</p><p class="bullet">At least one clear image or file is included.</p><p class="bullet">The evidence matches the final idea from Ideation.</p><p class="bullet">The prototype version is labelled clearly.</p><p class="bullet">The link is accessible by supervisor/team members.</p></div>
+      <div class="template-actions">
+        <button class="btn teal full" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save T13 Evidence</button>
+        <button class="btn ghost full" data-next-subtab="ready04" type="button">Continue to Readiness Check</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="ready04">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>Prototype Readiness Check</h2><p class="section-sub">Confirm that your prototype is ready to move into Phase 05 Test.</p></div><span class="status">Final Check</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Why this check matters</span><h3>What must be ready?</h3><p>Testing will be weak if the prototype is unclear. Before moving forward, check that the prototype can be understood, tried and reviewed by real users.</p><div class="guide-mini-grid"><div><b>Checks</b><span>T11–T13 complete</span></div><div><b>Next</b><span>Phase 05 Test</span></div><div><b>Outcome</b><span>Ready / revise</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">04</span>Pre-Test Checklist</p><p class="bullet">T11 Prototype Plan completed.</p><p class="bullet">T12 Version Log includes feedback and improvements.</p><p class="bullet">T13 Evidence uploaded or linked.</p><p class="bullet">Prototype is connected to the problem statement and user need.</p><p class="bullet">Team knows what to test with users in Phase 05.</p></div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="Readiness sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Readiness Note</span>
+        <h3>Prototype ready for user testing</h3>
+        <div class="sample-tip">Our prototype is ready for user testing because it shows the core lunch crowd-checking flow, includes the improved colour labels, and has evidence uploaded in the Drive folder.</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Sample readiness note guide</div><p>Our prototype is ready for user testing because it shows the core lunch crowd-checking flow, includes the improved colour labels, and has evidence uploaded in the Drive folder.</p></div>
+      <div class="field"><label>Readiness Notes</label><textarea class="textarea" name="ready04_notes" placeholder="Explain why your prototype is ready for user testing, or what still needs revision."></textarea></div>
+      <div class="action-row">
+        <button class="btn ghost" data-save type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0gTb.png"/>Save</button>
+        <button class="btn ghost" data-print type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJU0hQ4.png"/>Print</button>
+        <button class="btn primary" data-submit-phase type="button"><img alt="" class="btn-icon-png" src="https://iili.io/CJgMhp1.png"/>Submit Phase 04</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</form>
+</section>
+</main>
+<nav aria-label="Main navigation" class="bottom-nav">
+<a class="nav-item" data-nav="dashboard" href="dashboard.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3ksWu.png"/><span class="nav-label">Dashboard</span></a>
+<a class="nav-item active" data-nav="learn" href="phase04-prototype.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3wdpn.png"/><span class="nav-label">Learn</span></a>
+<a class="nav-item" data-nav="projects" href="projects.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3kixe.png"/><span class="nav-label">Projects</span></a>
+<a class="nav-item" data-nav="progress" href="progress.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k4O7.png"/><span class="nav-label">Progress</span></a>
+<a class="nav-item" data-nav="profile" href="profile.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k6b9.png"/><span class="nav-label">Profile</span></a>
+</nav>
+</div>
+<script src="js/smartdt-assets.js"></script><script src="js/smartdt.js"></script>
+</body>
+</html>

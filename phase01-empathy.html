@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"/>
+<title>Phase 01 Empathy — Smart DT Project</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="css/smartdt.css" rel="stylesheet"/>
+</head>
+<body data-page="learn" data-phase="01">
+<div class="app">
+<header class="header">
+<a class="brand" href="dashboard.html"><span aria-hidden="true" class="brand-logo brand-logo-inline"><img alt="" decoding="async" loading="lazy" src="https://iili.io/Cd3i8QV.png"/></span><span class="brand-text">Smart DT<br/>Project</span></a>
+<div class="header-actions"><span class="pill"><b style="color:var(--orange)">01</b> / 05</span><span class="pill lang-pill"><span class="pill-symbol" aria-hidden="true">🌐</span> EN</span><button aria-label="Menu" class="icon-btn menu-lines"><span></span><span></span><span></span></button></div>
+</header>
+<main class="page phase-page">
+<section class="hero-card compact"><img alt="Empathy phase header" src="https://iili.io/CdztwYu.png"/></section>
+<section class="intro-card"><p class="eyebrow">Phase 01 · Empathy</p><h1 class="intro-title">Understand users before you <span class="teal">solve.</span></h1><p class="intro-text">In this phase, your team interviews, observes, listens and documents real user needs before moving to Define.</p></section>
+<div class="tabbar" role="tablist"><button class="tab active" data-tab="quickInfo">Quick Info</button><button class="tab" data-tab="quizPanel">Quiz</button><button class="tab" data-tab="templatesPanel">Templates</button></div>
+<section class="panel active" id="quickInfo">
+<div class="card"><h2 class="section-title" style="margin-top:0">What is Empathy?</h2><p class="section-sub">Empathy is the first phase of Design Thinking. Students go out into the real world to understand the people they are designing for — their feelings, struggles and real needs.</p></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">What students need to do</h2><ul class="list"><li>Prepare interview questions using T01 Interview Guide.</li><li>Conduct interviews with at least 3 real target users.</li><li>Record and transcribe interviews with permission.</li><li>Complete Empathy Map, Persona and User Needs Summary.</li></ul></div>
+<div class="card"><h2 class="section-title" style="margin-top:0">Common mistakes to avoid</h2><ul class="list"><li>Do not ask leading questions such as “Don’t you think this is a problem?”</li><li>Do not interview only friends. Find real target users.</li><li>Do not assume what users feel without evidence.</li><li>Do not skip observation. Watch what users actually do.</li></ul></div>
+<button class="btn primary full" onclick="document.querySelector('[data-tab=quizPanel]').click()">Start Quick Check Quiz</button>
+</section>
+<section class="panel" id="quizPanel"><div id="quizBox"></div></section>
+<section class="panel" id="templatesPanel">
+<h1 class="section-title phase-title"><span>Empathy</span><br/>Templates</h1>
+<p class="section-sub">Use each template as a guided learning activity. Start by preparing the interview, assign team roles, plan your questions, conduct the interview with consent, then transcribe and organise evidence.</p>
+<div class="template-steps">
+<div class="template-step"><span class="step-num">0</span><p>Prepare + Roles</p></div>
+<div class="template-step"><span class="step-num">1</span><p>Interview + Record</p></div>
+<div class="template-step"><span class="step-num">2</span><p>Map Experience</p></div>
+<div class="template-step"><span class="step-num">3</span><p>Build Persona</p></div>
+<div class="template-step"><span class="step-num">4</span><p>Summarise Needs</p></div>
+</div>
+<div class="subtabs">
+<button class="subtab active" data-subtab="t00">T00 Prepare</button>
+<button class="subtab" data-subtab="t01">T01 Interview</button>
+<button class="subtab" data-subtab="t02">T02 Empathy Map</button>
+<button class="subtab" data-subtab="t03">T03 Persona</button>
+<button class="subtab" data-subtab="t04">T04 Needs</button>
+</div>
+<form id="empathyForm">
+
+<section class="template-panel active" id="t00">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head">
+      <div>
+        <h2>T00 Prepare Interview + Roles</h2>
+        <p class="section-sub">Plan your target users, team roles, opening script and interview setting before meeting participants.</p>
+      </div>
+      <span class="status">Start Here</span>
+    </div>
+
+    <div class="template-guide-card">
+      <span class="guide-tag">Template Intro</span>
+      <h3>Purpose of this template</h3>
+      <p>This template helps your team prepare a clear and ethical interview plan. Students should not start recording or asking questions until the target users, roles and opening script are ready.</p>
+      <div class="guide-mini-grid">
+        <div><b>Input</b><span>Project topic + target user idea</span></div>
+        <div><b>Action</b><span>Assign roles + prepare script</span></div>
+        <div><b>Output</b><span>Ready-to-use interview plan</span></div>
+      </div>
+    </div>
+
+    <div class="activity-box enhanced">
+      <p class="activity-title"><span class="badge">A0</span>What students need to do</p>
+      <p class="bullet"><b>1. Choose target users:</b> identify real users who experience the issue.</p>
+      <p class="bullet"><b>2. Assign roles:</b> interviewer, note-taker, recorder/timekeeper and observer.</p>
+      <p class="bullet"><b>3. Prepare opening script:</b> explain who you are, purpose, duration, privacy and consent.</p>
+      <p class="bullet"><b>4. Decide interview context:</b> where, when and why this user group is suitable.</p>
+    </div>
+
+    <div class="role-grid-card">
+      <h3>Interview Team Setup</h3>
+      <div class="role-grid">
+        <div class="role-card"><span class="role-number">1</span><b>Interviewer</b><small>Asks questions and keeps the conversation natural.</small></div>
+        <div class="role-card"><span class="role-number">2</span><b>Note-taker</b><small>Captures key quotes, behaviours and important words.</small></div>
+        <div class="role-card"><span class="role-number">3</span><b>Recorder / Timekeeper</b><small>Handles recording permission, audio and timing.</small></div>
+        <div class="role-card"><span class="role-number">4</span><b>Observer</b><small>Watches facial expression, hesitation and body language.</small></div>
+      </div>
+    </div>
+
+    <div class="switch template-mode-switch" role="tablist" aria-label="T00 sample or fill mode">
+      <button class="active" data-mode="sample" type="button">View Sample</button>
+      <button data-mode="fill" type="button">Fill Template</button>
+    </div>
+
+    <div class="mode-panel sample-panel" data-panel="sample">
+      <div class="sample rich-sample">
+        <span class="sample-kicker">Sample Preparation</span>
+        <h3>Scenario: Students buying lunch during peak hour</h3>
+        <p class="sample-lead"><b>Target users:</b> Diploma students who regularly buy lunch between 12.30–2.00 pm.</p>
+        <div class="map-preview">
+          <div><b>Interviewer</b><p>Aina asks questions and follows the interview guide.</p></div>
+          <div><b>Note-taker</b><p>Farid records key words, direct quotes and patterns.</p></div>
+          <div><b>Recorder</b><p>Mei asks permission, starts audio and manages time.</p></div>
+          <div><b>Observer</b><p>Ravi observes body language and waiting behaviour.</p></div>
+        </div>
+        <div class="sample-tip"><b>Opening line example:</b> “Hi, we are working on a Design Thinking project to understand students’ lunch experience. This interview will take about 5 minutes. We will use a code such as U01 instead of your real name.”</div>
+      </div>
+    </div>
+
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Fill guide</div><p><b>Target user group:</b> who will you interview? <br><b>Opening script:</b> include purpose, time, privacy and permission.</p></div>
+      <div class="field"><label>Target User Group</label><p class="field-help">Who are you interviewing?</p><input class="input" name="t00_target" placeholder="Example: Diploma students who buy lunch at the canteen during peak hour"></div>
+      <div class="mini-row"><div class="field"><label>Interviewer</label><input class="input" name="t00_interviewer" placeholder="Name / role"></div><div class="field"><label>Note-taker</label><input class="input" name="t00_notetaker" placeholder="Name / role"></div></div>
+      <div class="mini-row"><div class="field"><label>Recorder / Timekeeper</label><input class="input" name="t00_recorder" placeholder="Name / role"></div><div class="field"><label>Observer</label><input class="input" name="t00_observer" placeholder="Name / role"></div></div>
+      <div class="field"><label>Opening Script</label><p class="field-help">Write how you will introduce the project and ask for permission.</p><textarea class="textarea" name="t00_opening" placeholder="Hi, we are working on a Design Thinking project about... This will take about... May we record for project notes?"></textarea></div>
+      <div class="field"><label>Interview Context</label><p class="field-help">Where and when will you interview? Why this user group?</p><textarea class="textarea" name="t00_context" placeholder="Example: Canteen area after lunch break because students just experienced the situation."></textarea></div>
+      <div class="template-actions"><button class="btn teal full" data-save type="button">Save T00 Preparation</button><button class="btn ghost full" data-next-subtab="t01" type="button">Next: T01 Interview</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t01">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T01 Interview Guide + Evidence</h2><p class="section-sub">Prepare questions, ask consent, conduct the interview, record if allowed and capture transcript evidence.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Template Intro</span><h3>Purpose of this template</h3><p>This template guides students to collect real user evidence. It combines interview questions, consent, recording, transcript, observations and early insights in one place.</p><div class="guide-mini-grid"><div><b>Input</b><span>T00 preparation</span></div><div><b>Action</b><span>Interview + observe</span></div><div><b>Output</b><span>Transcript + 3 insights</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">A1</span>Correct interview sequence</p><p class="bullet"><b>Before:</b> prepare warm-up, main questions and probing starters.</p><p class="bullet"><b>Start:</b> introduce the team and explain the project purpose.</p><p class="bullet"><b>Consent:</b> ask permission before recording; use user code, not real name.</p><p class="bullet"><b>During:</b> listen actively and ask follow-up questions.</p><p class="bullet"><b>After:</b> transcribe key responses and write 3 insights immediately.</p></div>
+    <div class="switch template-mode-switch"><button class="active" data-mode="sample" type="button">View Sample</button><button data-mode="fill" type="button">Fill Template</button></div>
+    <div class="mode-panel sample-panel" data-panel="sample"><div class="sample rich-sample"><span class="sample-kicker">Sample Interview Guide</span><h3>Canteen peak-hour interview</h3><div class="do-dont"><div><b>Weak question</b><p>“Do you agree the canteen needs an app?”</p></div><div><b>Better question</b><p>“Tell me about your experience buying lunch during peak hour.”</p></div></div><div class="sample-tip"><b>Opening script:</b> “Thank you for helping us. We want to understand your real lunch experience. There is no right or wrong answer.”</div><div class="sample-tip"><b>Consent script:</b> “Can we record this short conversation only for project notes? We will not use your real name.”</div></div></div>
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Fill guide</div><p><b>Warm-up:</b> start easy. <b>Main questions:</b> ask experience-based questions. <b>Insights:</b> write what you learned, not your solution.</p></div>
+      <div class="mini-row"><div class="field"><label>Interview Date</label><input class="input" name="t01_date" type="date"></div><div class="field"><label>Location / Platform</label><input class="input" name="t01_location" placeholder="e.g. Canteen / Google Meet"></div></div>
+      <div class="mini-row"><div class="field"><label>Interviewee Code</label><input class="input" name="t01_code" placeholder="e.g. U01"></div><div class="field"><label>User Type</label><input class="input" name="t01_user_type" placeholder="e.g. Diploma student"></div></div>
+      <div class="field"><label>Warm-up Questions</label><textarea class="textarea" name="t01_warmup" placeholder="Example: Tell me about your usual lunch routine on campus."></textarea></div>
+      <div class="field"><label>5 Main Interview Questions</label><textarea class="textarea" name="t01_main_questions" placeholder="1. Tell me about...&#10;2. What usually happens when...&#10;3. What makes it difficult...&#10;4. How do you normally respond...&#10;5. What would make it easier..."></textarea></div>
+      <div class="field"><label>Probing Starters</label><textarea class="textarea" name="t01_probing" placeholder="Why? Can you explain more? What happened next? How did that make you feel?"></textarea></div>
+      <div class="consent"><b style="color:var(--orange)">Consent Reminder</b><p class="section-sub" style="margin:6px 0 0">Ask permission before recording. Avoid sensitive personal information and use interviewee codes.</p></div>
+      <div class="record-head"><b>Interview Recording</b><span class="timer">00:00</span></div>
+      <div class="action-row record-controls"><button class="btn orange" id="startRec" type="button">Start Recording</button><button class="btn warning" id="pauseRec" type="button">Pause</button><button class="btn ghost" id="stopRec" type="button">Stop</button></div>
+      <div class="audio-box"><label class="form-label">Upload Audio File</label><input accept="audio/*" class="input" name="t01_audio" type="file"></div>
+      <div class="field"><label>Transcript</label><textarea class="textarea" name="t01_transcript" placeholder="Paste or type the interview transcript here..."></textarea></div>
+      <div class="action-row transcript-actions"><button class="btn ghost compact" id="autoTranscribe" type="button">Auto Transcribe</button><button class="btn teal compact" data-save type="button">Save Transcript</button></div>
+      <div class="field"><label>Observation Notes</label><p class="field-help">What did the user do, show, hesitate, repeat or avoid?</p><textarea class="textarea" name="t01_observation" placeholder="Example: User looked at the clock repeatedly while describing the queue."></textarea></div>
+      <div class="field"><label>3 Key Insights</label><textarea class="textarea" name="t01_insights" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div>
+      <div class="template-actions"><button class="btn teal full" data-save type="button">Save T01</button><button class="btn ghost full" data-next-subtab="t02" type="button">Next: T02 Empathy Map</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t02">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T02 Empathy Map</h2><p class="section-sub">Organise one user's evidence into Says, Thinks, Does, Feels, Pains and Gains.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Template Intro</span><h3>Purpose of this template</h3><p>The Empathy Map helps students separate direct quotes, observed actions, possible thoughts and emotions. This prevents teams from jumping to solutions too early.</p><div class="guide-mini-grid"><div><b>Input</b><span>Transcript + observations</span></div><div><b>Action</b><span>Sort evidence</span></div><div><b>Output</b><span>Empathy Map</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">A2</span>What students need to do</p><p class="bullet"><b>Says:</b> use exact user quotes.</p><p class="bullet"><b>Does:</b> use observed behaviour.</p><p class="bullet"><b>Thinks/Feels:</b> infer carefully based on evidence.</p><p class="bullet"><b>Pains/Gains:</b> summarise struggles and desired benefits.</p></div>
+    <div class="switch template-mode-switch"><button class="active" data-mode="sample" type="button">View Sample</button><button data-mode="fill" type="button">Fill Template</button></div>
+    <div class="mode-panel sample-panel" data-panel="sample"><div class="sample rich-sample"><span class="sample-kicker">Sample Empathy Map</span><h3>U01 — Canteen user</h3><div class="map-preview"><div><b>Says</b><p>“The queue is too long.”</p></div><div><b>Thinks</b><p>“I might miss class.”</p></div><div><b>Does</b><p>Checks the time repeatedly.</p></div><div><b>Feels</b><p>Frustrated and rushed.</p></div></div><div class="sample-tip"><b>Reminder:</b> Says and Does need direct evidence. Thinks and Feels must be reasonable interpretations.</div></div></div>
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Fill guide</div><p>Complete this map for one interviewee first. You can repeat it for other users later.</p></div>
+      <div class="field"><label>User Identity / Interviewee Code</label><input class="input" name="t02_user" placeholder="e.g. U01"></div>
+      <div class="quad"><div class="field"><label>Says</label><textarea class="textarea" name="t02_says" placeholder="Exact words or quotes..."></textarea></div><div class="field"><label>Thinks</label><textarea class="textarea" name="t02_thinks" placeholder="What might the user be thinking?"></textarea></div><div class="field"><label>Does</label><textarea class="textarea" name="t02_does" placeholder="Observed actions..."></textarea></div><div class="field"><label>Feels</label><textarea class="textarea" name="t02_feels" placeholder="Possible emotions based on evidence..."></textarea></div></div>
+      <div class="mini-row"><div class="field"><label>Pains</label><textarea class="textarea" name="t02_pains" placeholder="User struggles..."></textarea></div><div class="field"><label>Gains</label><textarea class="textarea" name="t02_gains" placeholder="Desired benefits..."></textarea></div></div>
+      <div class="template-actions"><button class="btn teal full" data-save type="button">Save T02</button><button class="btn ghost full" data-next-subtab="t03" type="button">Next: T03 Persona</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t03">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T03 Persona</h2><p class="section-sub">Create one research-based persona from repeated patterns across interviews.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Template Intro</span><h3>Purpose of this template</h3><p>The persona represents the common characteristics, goals and pain points of your target users. It should be based on evidence, not imagination only.</p><div class="guide-mini-grid"><div><b>Input</b><span>T01 + T02 patterns</span></div><div><b>Action</b><span>Build user profile</span></div><div><b>Output</b><span>Persona profile</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">A3</span>What students need to do</p><p class="bullet"><b>Combine:</b> repeated patterns from several users.</p><p class="bullet"><b>Include:</b> quote, background, goals, pain points and current workaround.</p><p class="bullet"><b>Check:</b> every detail must connect back to interview evidence.</p></div>
+    <div class="switch template-mode-switch"><button class="active" data-mode="sample" type="button">View Sample</button><button data-mode="fill" type="button">Fill Template</button></div>
+    <div class="mode-panel sample-panel" data-panel="sample"><div class="sample rich-sample"><span class="sample-kicker">Sample Persona Card</span><div class="persona-preview"><div class="persona-avatar">A</div><div><h3>Aina, 20</h3><p>Diploma student · Medium tech comfort</p><blockquote>“I just want to get lunch quickly and reach class on time.”</blockquote></div></div><div class="sample-columns"><div><b>Goals</b><p>Buy food quickly, avoid missing class, know food availability.</p></div><div><b>Pain Points</b><p>Long queues, unclear choices, rushed break time.</p></div></div></div></div>
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Fill guide</div><p>A persona is not one exact person. It is a realistic user profile built from repeated patterns.</p></div>
+      <div class="mini-row"><div class="field"><label>Persona Name</label><input class="input" name="t03_name" placeholder="e.g. Aina, the Busy Lunch Buyer"></div><div class="field"><label>Age / Programme</label><input class="input" name="t03_age_programme" placeholder="e.g. 20 / Diploma student"></div></div>
+      <div class="field"><label>Tech Comfort</label><input class="input" name="t03_tech" placeholder="Low / Medium / High"></div>
+      <div class="field"><label>Quote</label><textarea class="textarea" name="t03_quote" placeholder="A short quote that represents the user voice..."></textarea></div>
+      <div class="field"><label>Background</label><textarea class="textarea" name="t03_background" placeholder="Describe the user context briefly..."></textarea></div>
+      <div class="mini-row"><div class="field"><label>Goals x3</label><textarea class="textarea" name="t03_goals" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div><div class="field"><label>Pain Points x3</label><textarea class="textarea" name="t03_pains" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div></div>
+      <div class="field"><label>Current Workaround</label><textarea class="textarea" name="t03_workaround" placeholder="What does the user currently do to manage the problem?"></textarea></div>
+      <div class="field"><label>Solution Need</label><textarea class="textarea" name="t03_solution_need" placeholder="What does this persona need? Do not write final solution yet."></textarea></div>
+      <div class="template-actions"><button class="btn teal full" data-save type="button">Save T03</button><button class="btn ghost full" data-next-subtab="t04" type="button">Next: T04 Needs</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="template-panel" id="t04">
+  <div class="template-card guided-template" data-template-card>
+    <div class="template-head"><div><h2>T04 User Needs Summary</h2><p class="section-sub">Summarise patterns, needs and evidence from all Empathy research.</p></div><span class="status">Not Started</span></div>
+    <div class="template-guide-card"><span class="guide-tag">Template Intro</span><h3>Purpose of this template</h3><p>This template turns interview evidence into clear user needs. It prepares your team for Phase 02 Define, where you will write a strong problem statement.</p><div class="guide-mini-grid"><div><b>Input</b><span>3+ interviews</span></div><div><b>Action</b><span>Find patterns</span></div><div><b>Output</b><span>User needs with evidence</span></div></div></div>
+    <div class="activity-box enhanced"><p class="activity-title"><span class="badge">A4</span>What students need to do</p><p class="bullet"><b>Review:</b> transcripts, observations, empathy maps and persona.</p><p class="bullet"><b>Identify:</b> repeated patterns, not one random comment.</p><p class="bullet"><b>Write:</b> user needs with evidence, not solution ideas.</p></div>
+    <div class="switch template-mode-switch"><button class="active" data-mode="sample" type="button">View Sample</button><button data-mode="fill" type="button">Fill Template</button></div>
+    <div class="mode-panel sample-panel" data-panel="sample"><div class="sample rich-sample"><span class="sample-kicker">Sample Needs Summary</span><h3>From evidence to user need</h3><div class="needs-preview"><div><b>Pattern</b><p>Students complain about long queues during short breaks.</p></div><div><b>Evidence</b><p>3 users mentioned waiting time and fear of being late to class.</p></div><div><b>User Need</b><p>Students need a faster way to decide where to buy lunch because they have limited break time.</p></div></div><div class="sample-tip"><b>Important:</b> Do not write the final solution yet. Write what the user needs and why.</div></div></div>
+    <div class="mode-panel fill-panel" data-panel="fill" hidden>
+      <div class="sample-answer"><div class="sample-answer-title">✍️ Fill guide</div><p><b>Pattern:</b> repeated issue. <b>Evidence:</b> quote/observation/count. <b>Need:</b> what user needs to achieve.</p></div>
+      <div class="mini-row"><div class="field"><label>Interview Count</label><input class="input" name="t04_count" placeholder="e.g. 3" type="number"></div><div class="field"><label>Research Period</label><input class="input" name="t04_period" placeholder="e.g. 20–24 May 2026"></div></div>
+      <div class="field"><label>Context</label><textarea class="textarea" name="t04_context" placeholder="Where, who and what situation did your team study?"></textarea></div>
+      <div class="field"><label>Patterns Found x3</label><textarea class="textarea" name="t04_patterns" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea></div>
+      <div class="field"><label>Top User Needs with Evidence x3</label><textarea class="textarea" name="t04_needs" placeholder="1. Need: ... Evidence: ...&#10;2. Need: ... Evidence: ...&#10;3. Need: ... Evidence: ..."></textarea></div>
+      <div class="field"><label>Surprising Findings x2</label><textarea class="textarea" name="t04_surprises" placeholder="1. ...&#10;2. ..."></textarea></div>
+      <div class="activity-box"><p class="activity-title"><span class="badge">✓</span>Completion Checklist</p><p class="bullet">At least 3 interviews completed.</p><p class="bullet">Transcript or interview evidence saved.</p><p class="bullet">Empathy map, persona and needs summary completed.</p></div>
+      <div class="action-row"><button class="btn ghost" data-save type="button">Save</button><button class="btn ghost" data-print type="button">Print</button><button class="btn primary" data-submit-phase type="button">Submit Phase 01</button></div>
+    </div>
+  </div>
+</section>
+</form>
+</section>
+</main>
+<nav aria-label="Main navigation" class="bottom-nav">
+<a class="nav-item" data-nav="dashboard" href="dashboard.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3ksWu.png"/><span class="nav-label">Dashboard</span></a>
+<a class="nav-item active" data-nav="learn" href="phase01-empathy.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3wdpn.png"/><span class="nav-label">Learn</span></a>
+<a class="nav-item" data-nav="projects" href="projects.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3kixe.png"/><span class="nav-label">Projects</span></a>
+<a class="nav-item" data-nav="progress" href="progress.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k4O7.png"/><span class="nav-label">Progress</span></a>
+<a class="nav-item" data-nav="profile" href="profile.html"><img alt="" class="nav-icon-img" decoding="async" loading="lazy" src="https://iili.io/Cd3k6b9.png"/><span class="nav-label">Profile</span></a>
+</nav>
+</div>
+<script src="js/smartdt-assets.js"></script><script src="js/smartdt.js"></script>
+</body>
+</html>
