@@ -1,0 +1,227 @@
+/* =========================================================
+   PHASE 01 PILOT PATCH CSS
+   File suggestion:
+   css/phase01-pilot-empathy-patch.css
+
+   Purpose:
+   - Quick Info infographic styling
+   - One-question quiz styling
+   - Final badge completion page styling
+   - Print evidence layout for T01–T04
+
+   Safe:
+   - CSS only
+   - No JS changes
+   - No data-key / data-panel / data-template changes
+   ========================================================= */
+
+.info-img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  margin: 14px 0;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(8,43,102,.05);
+  display: block;
+}
+
+.img-fallback {
+  display: none;
+  background: #FFFCF5;
+  border: 1.5px solid #FFD8C8;
+  border-radius: 22px;
+  padding: 16px;
+  margin: 14px 0;
+}
+
+.img-fallback h3 {
+  color: var(--navy);
+}
+
+.quiz-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 18px;
+  margin: 16px 0;
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quiz-count {
+  background: var(--green);
+  color: var(--teal);
+  font-weight: 900;
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-size: 13px;
+}
+
+.quiz-q {
+  font-weight: 900;
+  color: var(--navy);
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 10px 0 12px;
+}
+
+.option.correct {
+  border-color: var(--teal);
+  background: #E9FAF7;
+}
+
+.option.wrong {
+  border-color: #E5484D;
+  background: #FFF1F1;
+}
+
+.score-box {
+  background: var(--soft, #F8FBFE);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+  margin: 14px 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.badge-card {
+  background: linear-gradient(135deg, #E9FAF7, #F4FFFD);
+  border: 1.5px solid #BDEFE6;
+  border-radius: 26px;
+  padding: 24px 18px;
+  margin-top: 18px;
+  text-align: center;
+  box-shadow: 0 12px 26px rgba(22,184,170,.10);
+}
+
+.badge-img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  margin: 0 auto 8px;
+  display: block;
+}
+
+.badge-fallback {
+  font-size: 42px;
+}
+
+.badge-card h3 {
+  color: var(--teal);
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 6px 0;
+}
+
+.badge-card p {
+  max-width: 720px;
+  margin: 8px auto;
+  color: var(--muted);
+}
+
+.summary-list {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  text-align: left;
+  padding: 14px 14px 14px 28px;
+  margin: 16px auto;
+  max-width: 720px;
+}
+
+.summary-list li {
+  margin: 7px 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.badge-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@media (max-width: 720px) {
+  .badge-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-q {
+    font-size: 18px;
+  }
+}
+
+/* Print evidence: print all templates, not only active T04 */
+@media print {
+  .header,
+  .hero-card,
+  .intro-card,
+  .rule-card,
+  .stepbar,
+  .template-nav,
+  .guide-drop,
+  .btn-row,
+  .bottom-nav,
+  #badgeBox,
+  #quiz,
+  #quick {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .page {
+    padding: 0;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 0;
+    padding: 0;
+  }
+
+  .panel {
+    display: none !important;
+  }
+
+  #templates.panel {
+    display: block !important;
+  }
+
+  .template-panel {
+    display: block !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 24px;
+  }
+
+  .status {
+    display: none !important;
+  }
+
+  input,
+  textarea {
+    border: 1px solid #ddd !important;
+    min-height: auto !important;
+  }
+
+  .quick-fact {
+    break-inside: avoid;
+  }
+
+  .qf-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
