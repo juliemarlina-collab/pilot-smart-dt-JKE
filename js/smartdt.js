@@ -165,6 +165,22 @@
     $$('.avatar,.profile-initials').forEach(e=>e.textContent=initials(name));
   }
 
+  function syncPhaseCompletionKeys(){
+    ['01','02','03','04','05'].forEach(n=>{
+      if(store.get('p'+n+'_completed')==='true' && store.get('df_submitted_phase'+n)!=='true'){
+        store.set('df_submitted_phase'+n, 'true');
+      }
+      const rawScore = store.get('p'+n+'_quiz_score'); // stored as "N/5"
+      if(rawScore && !store.get('df_quiz_phase'+n)){
+        const num = parseInt(String(rawScore).split('/')[0], 10);
+        if(!isNaN(num)){
+          store.set('df_quiz_phase'+n, String(num));
+          if(num>=3) store.set('df_unlocked_phase'+n,'true');
+        }
+      }
+    });
+  }
+
   function isPhaseSubmitted(n){ return store.get('df_submitted_phase'+n)==='true'; }
   function quizScore(n){ return store.get('df_quiz_phase'+n); }
   function quizPassed(n){ const s = parseInt(quizScore(n)||'-1',10); return s >= 3 || store.get('df_unlocked_phase'+n)==='true'; }
@@ -359,19 +375,21 @@
   function formValues(root){
     const data={};
     $$('input, textarea, select', root).forEach(el=>{
-      if(!el.name) return;
-      if(el.type === 'file') { data[el.name] = el.files && el.files.length ? Array.from(el.files).map(f=>f.name).join(', ') : ''; }
-      else if(el.type === 'checkbox') data[el.name] = el.checked ? 'true' : 'false';
-      else data[el.name] = el.value;
+      const key = el.name || el.dataset.key;
+      if(!key) return;
+      if(el.type === 'file') { data[key] = el.files && el.files.length ? Array.from(el.files).map(f=>f.name).join(', ') : ''; }
+      else if(el.type === 'checkbox') data[key] = el.checked ? 'true' : 'false';
+      else data[key] = el.value;
     });
     return data;
   }
 
   function applyValues(root,data){
     $$('input, textarea, select', root).forEach(el=>{
-      if(!el.name || data[el.name] === undefined || el.type === 'file') return;
-      if(el.type === 'checkbox') el.checked = data[el.name] === 'true';
-      else el.value = data[el.name];
+      const key = el.name || el.dataset.key;
+      if(!key || data[key] === undefined || el.type === 'file') return;
+      if(el.type === 'checkbox') el.checked = data[key] === 'true';
+      else el.value = data[key];
     });
   }
 
@@ -432,7 +450,7 @@
     $$('[data-save]').forEach(btn=>btn.addEventListener('click',()=>saveTemplateFrom(btn)));
     $('[data-print]')?.addEventListener('click',()=>window.print());
 
-    const submit = $('[data-submit-phase]');
+    const submit = $('[data-submit-phase]') || $('#submitPhaseBtn');
     if(submit){
       submit.addEventListener('click',()=>{
         const ph=phase();
@@ -880,50 +898,31 @@
         render: ()=>{
           const team = store.get('df_team') || 'Not added';
           const sup  = store.get('df_supervisor') || 'Not added';
-          // Pull T00 role assignments if saved
-          const t00 = store.json('df_phase01_templates',{})['t00']?.values || {};
-          const interviewer = t00['t00_interviewer'] || '—';
-          const notetaker   = t00['t00_notetaker']   || '—';
-          const recorder    = t00['t00_recorder']     || '—';
-          const observer    = t00['t00_observer']     || '—';
           return `
             <div class="profile-info-panel">
               <div class="profile-field"><span>Team Name</span><strong>${escapeHtml(team)}</strong></div>
               <div class="profile-field"><span>Supervisor</span><strong>${escapeHtml(sup)}</strong></div>
-              <div class="profile-field" style="grid-column:1/-1"><span>Interview Roles (from T00)</span>
-                <strong style="font-weight:700;font-size:12px;line-height:1.6">
-                  Interviewer: ${escapeHtml(interviewer)}<br>
-                  Note-taker: ${escapeHtml(notetaker)}<br>
-                  Recorder: ${escapeHtml(recorder)}<br>
-                  Observer: ${escapeHtml(observer)}
-                </strong>
-              </div>
-              <p style="font-size:11.5px;color:var(--muted);margin-top:8px">Role assignments are pulled from T00 Prepare Interview.</p>
+              <p style="font-size:11.5px;color:var(--muted);margin-top:8px">To update these details, use <strong>Edit Profile</strong> above.</p>
             </div>`;
         }
       },
       myReflections: {
-        title: 'My Reflections',
+        title: 'My Pitch & Reflections',
         render: ()=>{
-          const t16 = store.json('df_phase05_templates',{})['t16']?.values || {};
-          const wentWell   = t16['t16_went_well']   || '';
-          const challenge  = t16['t16_challenge']   || '';
-          const dtChange   = t16['t16_dt_change']   || '';
-          const message    = t16['t16_message']     || '';
-          const rating     = t16['t16_rating']      || '';
-          const skill      = t16['t16_skill']       || '';
-          const hasSaved   = wentWell || challenge || dtChange;
-          if(!hasSaved){
-            return `<div class="profile-info-panel"><p style="font-size:13px;color:var(--muted);padding:8px 0">Your Final Reflection (T16) has not been completed yet. Complete Phase 05 Test to see your reflection here.</p><a class="btn ghost" style="font-size:12px;min-height:40px;margin-top:8px" href="phase05-test.html">Go to Phase 05</a></div>`;
+          const slides = [1,2,3,4,5,6,7,8].map(i=>store.get('p05_t14_slide'+i));
+          const pitchDone = !!slides[0];
+          const filledCount = slides.filter(s=>s).length;
+          const issue = store.get('p05_t13_issue');
+          const fix   = store.get('p05_t13_fix');
+          if(!pitchDone && !issue){
+            return `<div class="profile-info-panel"><p style="font-size:13px;color:var(--muted);padding:8px 0">Your Improvement Plan (T13) and Pitch (T14) have not been completed yet. Complete Phase 05 Test to see them here.</p><a class="btn ghost" style="font-size:12px;min-height:40px;margin-top:8px" href="phase05-test.html">Go to Phase 05</a></div>`;
           }
           return `
             <div class="profile-info-panel">
-              ${rating ? `<div class="profile-field" style="grid-column:1/-1"><span>Journey Rating</span><strong>${escapeHtml(rating)}</strong></div>` : ''}
-              ${skill  ? `<div class="profile-field" style="grid-column:1/-1"><span>Top Skill Improved</span><strong>${escapeHtml(skill)}</strong></div>` : ''}
-              ${wentWell  ? `<div class="profile-field" style="grid-column:1/-1"><span>What went well</span><strong style="font-weight:600;font-size:12px">${escapeHtml(wentWell)}</strong></div>` : ''}
-              ${challenge ? `<div class="profile-field" style="grid-column:1/-1"><span>Biggest challenge</span><strong style="font-weight:600;font-size:12px">${escapeHtml(challenge)}</strong></div>` : ''}
-              ${dtChange  ? `<div class="profile-field" style="grid-column:1/-1"><span>How DT changed my approach</span><strong style="font-weight:600;font-size:12px">${escapeHtml(dtChange)}</strong></div>` : ''}
-              ${message   ? `<div class="profile-field" style="grid-column:1/-1"><span>Message to future students</span><strong style="font-weight:600;font-size:12px">${escapeHtml(message)}</strong></div>` : ''}
+              ${issue ? `<div class="profile-field" style="grid-column:1/-1"><span>Main Issue Found (T13)</span><strong style="font-weight:600;font-size:12px">${escapeHtml(issue)}</strong></div>` : ''}
+              ${fix   ? `<div class="profile-field" style="grid-column:1/-1"><span>Proposed Fix (T13)</span><strong style="font-weight:600;font-size:12px">${escapeHtml(fix)}</strong></div>` : ''}
+              <div class="profile-field" style="grid-column:1/-1"><span>Pitch Progress (T14)</span><strong>${filledCount}/8 slides completed</strong></div>
+              ${pitchDone ? `<div class="profile-field" style="grid-column:1/-1"><span>Slide 1 — Title</span><strong style="font-weight:600;font-size:12px">${escapeHtml(slides[0])}</strong></div>` : ''}
             </div>`;
         }
       },
@@ -1067,8 +1066,7 @@
     const done  = completedCount();
     const badges = badgeData().filter(b=>b.earned);
     const allDone = done >= 5;
-    const t14v = store.json('df_phase05_templates',{})['t14']?.values || {};
-    const pitchDone = !!(t14v['t14_slide1']);
+    const pitchDone = !!store.get('p05_t14_slide1');
     const summaryCard = $('#portfolioSummary');
     if(summaryCard){
       const phasesLeft = 5-done;
@@ -1093,19 +1091,16 @@
     }
     const checklistEl = $('#portfolioChecklist');
     if(checklistEl){
-      const t15v = store.json('df_phase05_templates',{})['t15']?.values || {};
-      const t16v = store.json('df_phase05_templates',{})['t16']?.values || {};
+      const improvementDone = !!(store.get('p05_t13_issue') || store.get('p05_t13_fix'));
       const items = [
-        { label:'Phase 01 completed',                                       done: isPhaseSubmitted('01') },
-        { label:'Phase 02 completed',                                       done: isPhaseSubmitted('02') },
-        { label:'Phase 03 completed',                                       done: isPhaseSubmitted('03') },
-        { label:'Phase 04 completed',                                       done: isPhaseSubmitted('04') },
-        { label:'Phase 05 completed',                                       done: isPhaseSubmitted('05') },
-        { label:'Final pitch completed',                                     done: pitchDone },
-        { label:'Final Reflection written honestly and in full',             done: !!(t16v['t16_went_well']) },
-        { label:'Improvement Plan includes proposed fixes',                  done: !!(t15v['t15_common']) },
-        { label:'All prototype and test evidence labelled and accessible',   done: isPhaseSubmitted('04') },
-        { label:'Ready for showcase / portfolio export',                     done: allDone }
+        { label:'Phase 01 completed',                 done: isPhaseSubmitted('01') },
+        { label:'Phase 02 completed',                 done: isPhaseSubmitted('02') },
+        { label:'Phase 03 completed',                 done: isPhaseSubmitted('03') },
+        { label:'Phase 04 completed',                 done: isPhaseSubmitted('04') },
+        { label:'Phase 05 completed',                 done: isPhaseSubmitted('05') },
+        { label:'Improvement Plan completed',          done: improvementDone },
+        { label:'Final Pitch completed',                done: pitchDone },
+        { label:'Ready for showcase / portfolio export', done: allDone }
       ];
       checklistEl.innerHTML = items.map(item=>
         '<li class="portfolio-checklist-item '+(item.done?'done':'')+'">'
@@ -1121,6 +1116,7 @@
   function escapeAttr(str){ return escapeHtml(str).replace(/`/g,'&#96;'); }
 
   document.addEventListener('DOMContentLoaded',()=>{
+    syncPhaseCompletionKeys();
     setupGateGuard();
     hydrateHeader();
     setupAuth();
