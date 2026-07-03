@@ -170,17 +170,11 @@
   function quizPassed(n){ const s = parseInt(quizScore(n)||'-1',10); return s >= 3 || store.get('df_unlocked_phase'+n)==='true'; }
   function completedCount(){ let c=0; ['01','02','03','04','05'].forEach(n=>{ if(isPhaseSubmitted(n)) c++; }); return c; }
   function currentPhase(){
-    // Gate requirements: gate must be approved before the NEXT phase is considered current
-    // Gate 1 (df_gate_1) guards phase03; Gate 2 (df_gate_2) guards phase04
+    // Completion-based only. No supervisor gate dependency.
     for(const n of ['01','02','03','04','05']){
       if(isPhaseSubmitted(n)) continue;
-      // Check if a gate blocks entry to this phase
-      if(n==='03' && store.get('df_gate_1')!=='approved') return '02'; // stay on 02 until gate1 approved
-      if(n==='04' && store.get('df_gate_2')!=='approved') return '03'; // stay on 03 until gate2 approved
       return n;
     }
-    // All phases done — check gate3 before portfolio
-    if(store.get('df_gate_3')!=='approved') return '05'; // stay on 05 until gate3 approved
     return 'portfolio';
   }
 
@@ -452,9 +446,6 @@
         expected.forEach(id=>{ const panel=document.getElementById(id); if(panel) allData[id]=formValues(panel); });
         store.setJson('df_phase'+ph+'_submission', { submittedAt:new Date().toISOString(), templates:allData });
         store.set('df_submitted_phase'+ph,'true');
-        if(ph==='02') store.set('df_gate_1','submitted');
-        if(ph==='03') store.set('df_gate_2','submitted');
-        if(ph==='05') store.set('df_gate_3','submitted');
         syncToGoogleSheets('phase_submit', { phase: ph, submission: allData, submittedAt: new Date().toISOString(), nextPhase: NEXT_PHASE[ph] || null });
         const next = NEXT_PHASE[ph];
         showSubmitSuccess(ph,next);
@@ -759,22 +750,8 @@
     const panel=$('.panel.active') || $('main') || document.body;
     const card=document.createElement('div');
     card.className='submit-success-card';
-    // Gates that block entry to the NEXT phase
-    const gatedPhases = { '02':'Gate 1', '03':'Gate 2', '05':'Gate 3' };
-    const gateLabel = gatedPhases[ph];
-    const nextBlocked = gateLabel && !isGateApproved(ph);
     let nextHtml = '';
-    if(nextBlocked){
-      nextHtml = `<div class="gate-await-notice">
-        <strong>${gateLabel} submitted.</strong>
-        Your supervisor will review your work and approve ${gateLabel} before you can proceed to ${next ? next.label : 'the next phase'}.
-        You will be notified when approved. Check your Progress page to see the status.
-      </div>
-      <div class="success-actions">
-        <a class="btn ghost" href="progress.html">View Progress</a>
-        <button class="btn primary" id="checkGateBtn" type="button">Check Approval Status</button>
-      </div>`;
-    } else if(next){
+    if(next){
       nextHtml = `<p>Next step: continue to <strong>${next.label}</strong>.</p>
       <div class="success-actions">
         <a class="btn ghost" href="progress.html">View Progress</a>
@@ -786,153 +763,25 @@
     card.innerHTML=`
       <div class="success-mark">✓</div>
       <h2>Phase ${ph} Submitted Successfully</h2>
-      <p>Your work has been saved and sent to your supervisor.</p>
+      <p>Phase completed successfully. Your work has been saved on this device. You may continue to the next phase.</p>
       ${nextHtml}`;
     panel.prepend(card);
     card.scrollIntoView({behavior:'smooth',block:'start'});
     toast(`Phase ${ph} submitted.`);
-    if(nextBlocked){
-      $('#checkGateBtn')?.addEventListener('click',()=>{
-        const gNum = ph==='02'?'1':ph==='03'?'2':'3';
-        toast('Checking approval status…');
-        checkGateApproval(gNum, store.get('df_email')).then(approved=>{
-          if(approved){
-            toast(`${gateLabel} approved! You can now proceed.`);
-            card.querySelector('.gate-await-notice').innerHTML = `<strong style="color:var(--teal)">${gateLabel} Approved!</strong> You may now proceed to ${next?next.label:'the next phase'}.`;
-            if(next) card.querySelector('#checkGateBtn').outerHTML = `<a class="btn primary" href="${next.url}">Go to ${next.label}</a>`;
-          } else {
-            toast('Not yet approved. Your supervisor has been notified.');
-          }
-        });
-      });
-    }
   }
 
-  // ── Gate approval: check with Google Sheets via GET ─────────────────
-  function isGateApproved(ph){
-    const key = ph==='02'?'df_gate_1':ph==='03'?'df_gate_2':ph==='05'?'df_gate_3':'';
-    return key ? store.get(key)==='approved' : false;
-  }
-
-  function isGateApprovedByNum(num){
-    return store.get('df_gate_'+num)==='approved';
-  }
-
-  function checkGateApproval(gateNum, email){
-    if(!APPS_SCRIPT_WEB_APP_URL || !email) return Promise.resolve(false);
-    const url = APPS_SCRIPT_WEB_APP_URL
-      + '?action=check_gate'
-      + '&gate='  + encodeURIComponent(gateNum)
-      + '&email=' + encodeURIComponent(email);
-    return fetch(url, { method:'GET', mode:'cors', cache:'no-store' })
-      .then(r => r.json())
-      .then(data => {
-        if(data && data.approved === true){
-          store.set('df_gate_'+gateNum, 'approved');
-          return true;
-        }
-        return false;
-      })
-      .catch(()=> false);
-  }
-
-  function pollGateApproval(gateNum, onApproved){
-    // Poll every 60 seconds while the gate lock screen is visible
-    const email = store.get('df_email');
-    if(!email) return;
-    let attempts = 0;
-    const MAX = 30; // stop after 30 minutes
-    const id = setInterval(()=>{
-      attempts++;
-      if(attempts > MAX){ clearInterval(id); return; }
-      checkGateApproval(gateNum, email).then(approved=>{
-        if(approved){ clearInterval(id); onApproved(); }
-      });
-    }, 60000);
-    // Also check immediately once on load
-    checkGateApproval(gateNum, email).then(approved=>{ if(approved){ clearInterval(id); onApproved(); } });
-    return id;
-  }
+  // ── Gate approval logic removed: no supervisor gate in this app ─────
+  function isGateApproved(){ return true; }
+  function isGateApprovedByNum(){ return true; }
+  function checkGateApproval(){ return Promise.resolve(true); }
+  function pollGateApproval(){ return null; }
 
   function setupGateGuard(){
-    const ph = phase();
-    // Map: which gate must be approved before this phase can be accessed
-    const gateRequirements = { '03':'1', '04':'2' };
-    const portfolioPage = document.body.dataset.page === 'portfolio';
-    const requiredGate = portfolioPage ? '3' : gateRequirements[ph];
-    if(!requiredGate) return; // phase 01, 02, 05 have no gate guarding entry
-
-    const gateKey = 'df_gate_'+requiredGate;
-    const gateLabel = 'Gate '+requiredGate;
-    const prevPhaseNames = { '1':'Phase 02 Define', '2':'Phase 03 Ideation', '3':'Phase 05 Test' };
-    const prevPhaseName = prevPhaseNames[requiredGate];
-
-    // If already approved, do nothing
-    if(store.get(gateKey)==='approved') return;
-
-    // Check with sheet first (non-blocking — show lock immediately, remove if approved)
-    const email = store.get('df_email');
-    if(email){
-      checkGateApproval(requiredGate, email).then(approved=>{
-        if(approved) removeLockScreen();
-      });
-    }
-
-    // Show lock screen over main content
-    const main = $('main') || document.body;
-    const lock = document.createElement('div');
-    lock.id = 'gateLockScreen';
-    lock.className = 'gate-lock-screen';
-    lock.innerHTML = `
-      <div class="gate-lock-card">
-        <div class="gate-lock-icon">🔒</div>
-        <h2 class="gate-lock-title">${gateLabel} Required</h2>
-        <p class="gate-lock-body">
-          Your supervisor needs to review and approve your <strong>${prevPhaseName}</strong> submission
-          before you can access this phase.
-        </p>
-        <p class="gate-lock-body" style="margin-top:8px">
-          Once your supervisor approves ${gateLabel} in their review sheet,
-          this page will unlock automatically.
-        </p>
-        <button class="btn teal full" id="manualCheckBtn" type="button" style="margin-top:14px">Check Approval Now</button>
-        <a class="btn ghost full" href="progress.html" style="margin-top:8px">View My Progress</a>
-        <a class="btn ghost full" href="dashboard.html" style="margin-top:8px">Back to Dashboard</a>
-      </div>`;
-
-    // Hide main content, show lock
-    main.style.display = 'none';
-    document.body.appendChild(lock);
-
-    function removeLockScreen(){
-      const l = $('#gateLockScreen');
-      if(l) l.remove();
-      if(main) main.style.display = '';
-      toast(`${gateLabel} approved! Welcome.`);
-    }
-
-    $('#manualCheckBtn')?.addEventListener('click',()=>{
-      const btn = $('#manualCheckBtn');
-      if(btn){ btn.textContent = 'Checking…'; btn.disabled = true; }
-      const em = store.get('df_email');
-      if(!em){
-        toast('Email not found. Please log in again.');
-        if(btn){ btn.textContent = 'Check Approval Now'; btn.disabled = false; }
-        return;
-      }
-      checkGateApproval(requiredGate, em).then(approved=>{
-        if(approved){
-          removeLockScreen();
-        } else {
-          toast('Not yet approved. Please wait for your supervisor.');
-          if(btn){ btn.textContent = 'Check Approval Now'; btn.disabled = false; }
-        }
-      });
-    });
-
-    // Auto-poll every 60s
-    pollGateApproval(requiredGate, removeLockScreen);
+    // No supervisor gate in this app. Function kept as a safe no-op
+    // so any existing call sites (e.g. init()) do not error.
+    return;
   }
+
 
   function setupNavActive(){
     const page=document.body.dataset.page;
@@ -1167,11 +1016,11 @@
   function renderProgress(){
     if(document.body.dataset.page!=='progress') return;
     const phases=[
-      {n:'01', name:'Phase 01 — Empathy', url:'phase01-empathy.html', gate:null},
-      {n:'02', name:'Phase 02 — Define', url:'phase02-define.html', gate:'Gate 1'},
-      {n:'03', name:'Phase 03 — Ideation', url:'phase03-ideation.html', gate:'Gate 2'},
-      {n:'04', name:'Phase 04 — Prototype', url:'phase04-prototype.html', gate:null},
-      {n:'05', name:'Phase 05 — Test', url:'phase05-test.html', gate:'Gate 3'}
+      {n:'01', name:'Phase 01 — Empathy', url:'phase01-empathy.html'},
+      {n:'02', name:'Phase 02 — Define', url:'phase02-define.html'},
+      {n:'03', name:'Phase 03 — Ideation', url:'phase03-ideation.html'},
+      {n:'04', name:'Phase 04 — Prototype', url:'phase04-prototype.html'},
+      {n:'05', name:'Phase 05 — Test', url:'phase05-test.html'}
     ];
     const done=completedCount(), pct=Math.round(done/5*100), current=currentPhase();
     $('#progressDoneText') && ($('#progressDoneText').textContent=`${done} of 5 phases complete`);
@@ -1180,31 +1029,26 @@
     const list=$('#phaseProgressList');
     if(list){ list.innerHTML=phases.map(p=>{
       const q=quizScore(p.n); const isDone=isPhaseSubmitted(p.n); const isCurrent=current===p.n;
-      return `<a class="phase-card-v9 ${isDone?'done':''} ${isCurrent?'current':''}" href="${p.url}"><span class="phase-num-v9">${isDone?'✓':p.n}</span><span class="phase-body-v9"><strong>${p.name}</strong><span class="phase-tags-v9"><em class="tag-v9 ${q?'pass':'locked'}">${q?'Quiz '+q+'/5':'Quiz pending'}</em><em class="tag-v9 ${isDone?'done':'pending'}">${isDone?'Submitted':'Not submitted'}</em>${p.gate?`<em class="tag-v9 ${gateSubmitted(p.gate)?'done':'pending'}">${p.gate}</em>`:''}</span></span><span class="phase-arrow-v9">›</span></a>`;
+      return `<a class="phase-card-v9 ${isDone?'done':''} ${isCurrent?'current':''}" href="${p.url}"><span class="phase-num-v9">${isDone?'✓':p.n}</span><span class="phase-body-v9"><strong>${p.name}</strong><span class="phase-tags-v9"><em class="tag-v9 ${q?'pass':'locked'}">${q?'Quiz Passed '+q+'/5':'Quiz pending'}</em><em class="tag-v9 ${isDone?'done':'pending'}">${isDone?'Phase Completed':(isCurrent?'Next Phase Available':'Not yet started')}</em></span></span><span class="phase-arrow-v9">›</span></a>`;
     }).join(''); }
     const gates=$('#gateList');
-    if(gates){ gates.innerHTML=[
-      {g:'Gate 1', after:'Phase 02 Define — supervisor reviews problem statement before Ideation', key:'df_gate_1'},
-      {g:'Gate 2', after:'Phase 03 Ideation — supervisor reviews selected idea before Prototype', key:'df_gate_2'},
-      {g:'Gate 3', after:'Phase 05 Test — final supervisor review before Portfolio submission', key:'df_gate_3'}
-    ].map(x=>{
-      const submitted = store.get(x.key)==='submitted' || store.get(x.key)==='approved';
-      const approved  = store.get(x.key)==='approved';
-      const pillClass = approved ? 'approved' : submitted ? 'submitted' : 'pending';
-      const pillText  = approved ? 'Approved' : submitted ? 'Awaiting Review' : 'Pending';
-      return `<div class="gate-row-v9"><span class="gate-ico ${submitted?'approved':''}"><img src="${submitted?'https://iili.io/CJgMhp1.png':'https://iili.io/Cd3sBGS.png'}" alt=""></span><span class="gate-info-v9"><strong>${x.g}</strong><small>${x.after}</small></span><span class="gate-pill-v9 ${pillClass}">${pillText}</span></div>`;
+    if(gates){ gates.innerHTML=phases.map(p=>{
+      const q=quizScore(p.n); const isDone=isPhaseSubmitted(p.n);
+      const statusClass = isDone ? 'approved' : (q ? 'submitted' : 'pending');
+      const statusText  = isDone ? 'Phase Completed' : (q ? 'Templates Saved' : 'Not yet started');
+      return `<div class="gate-row-v9"><span class="gate-ico ${isDone?'approved':''}"><img src="${isDone?'https://iili.io/CJgMhp1.png':'https://iili.io/Cd3sBGS.png'}" alt=""></span><span class="gate-info-v9"><strong>${p.name}</strong><small>Quiz ${q?q+'/5 passed':'pending'} · Templates ${isDone?'saved':'in progress'}</small></span><span class="gate-pill-v9 ${statusClass}">${statusText}</span></div>`;
     }).join(''); }
     const grid=$('#badgeGrid'); if(grid){ grid.innerHTML=badgeData().map(b=>`<div class="badge-card-v9 ${b.earned?'':'locked'}"><img src="${b.img}" alt=""><strong>${b.name}</strong><small>${b.text}</small></div>`).join(''); }
     $('#continuePhaseBtn')?.addEventListener('click',()=>{ location.href = PHASE_ROUTES[current] || 'portfolio-completion.html'; });
   }
 
-  function gateSubmitted(g){ return (g==='Gate 1'&&(store.get('df_gate_1')||isPhaseSubmitted('02'))) || (g==='Gate 2'&&(store.get('df_gate_2')||isPhaseSubmitted('03'))) || (g==='Gate 3'&&(store.get('df_gate_3')||isPhaseSubmitted('05'))); }
+  function gateSubmitted(){ return true; }
   function badgeData(){
     const d=completedCount();
     return [
       {name:'DT Explorer', img:'https://iili.io/CdFdugj.png', earned:d>=3, text:'3 of 5 phases submitted'},
       {name:'Empathy Champion', img:'https://iili.io/CdFdnz7.png', earned:isPhaseSubmitted('01'), text:'Phase 01 completed'},
-      {name:'Problem Framer', img:'https://iili.io/CdFdIqu.png', earned:isPhaseSubmitted('02'), text:'Gate 1 submitted'},
+      {name:'Problem Framer', img:'https://iili.io/CdFdIqu.png', earned:isPhaseSubmitted('02'), text:'Phase 02 completed'},
       {name:'Idea Generator', img:'https://iili.io/CdFdqe2.png', earned:isPhaseSubmitted('03'), text:'Ideation submitted'},
       {name:'Prototype Builder', img:'https://iili.io/CdFdT0b.png', earned:isPhaseSubmitted('04'), text:'Prototype evidence submitted'},
       {name:'User Tester', img:'https://iili.io/CdFdRdx.png', earned:isPhaseSubmitted('05'), text:'Test phase submitted'},
@@ -1223,14 +1067,11 @@
     const done  = completedCount();
     const badges = badgeData().filter(b=>b.earned);
     const allDone = done >= 5;
-    const g1 = store.get('df_gate_1')==='submitted'||store.get('df_gate_1')==='approved';
-    const g2 = store.get('df_gate_2')==='submitted'||store.get('df_gate_2')==='approved';
-    const g3 = store.get('df_gate_3')==='submitted'||store.get('df_gate_3')==='approved';
-    const gatesDone = [g1,g2,g3].filter(Boolean).length;
+    const t14v = store.json('df_phase05_templates',{})['t14']?.values || {};
+    const pitchDone = !!(t14v['t14_slide1']);
     const summaryCard = $('#portfolioSummary');
     if(summaryCard){
       const phasesLeft = 5-done;
-      const gatesLeft  = 3-gatesDone;
       summaryCard.innerHTML =
         '<div class="portfolio-student-row">'
         +'<div class="portfolio-avatar">'+escapeHtml(initials(name))+'</div>'
@@ -1240,15 +1081,14 @@
         +'<p class="portfolio-student-meta" style="margin-top:2px">'+escapeHtml(team)+' &middot; Supervisor: '+escapeHtml(sup)+'</p>'
         +'</div></div>'
         +'<div class="portfolio-stats-row">'
-        +'<div class="portfolio-stat '+(allDone?'done':'')+'"><strong>'+done+'/5</strong><span>Phases<br>Submitted</span></div>'
-        +'<div class="portfolio-stat '+(gatesDone===3?'done':'')+'"><strong>'+gatesDone+'/3</strong><span>Supervisor<br>Gates</span></div>'
+        +'<div class="portfolio-stat '+(allDone?'done':'')+'"><strong>'+done+'/5</strong><span>Phases<br>Completed</span></div>'
+        +'<div class="portfolio-stat '+(pitchDone?'done':'')+'"><strong>'+(pitchDone?'✓':'—')+'</strong><span>Final Pitch<br>Completed</span></div>'
         +'<div class="portfolio-stat '+(badges.length>0?'done':'')+'"><strong>'+badges.length+'</strong><span>Badges<br>Earned</span></div>'
         +'</div>'
-        +(allDone && gatesDone===3
-          ? '<div class="portfolio-ready-banner">All phases and gates complete &mdash; ready for portfolio submission!</div>'
+        +(allDone
+          ? '<div class="portfolio-ready-banner">All phases complete &mdash; ready for showcase / portfolio export!</div>'
           : '<div class="portfolio-pending-banner">'
-            +(phasesLeft>0 ? phasesLeft+' phase'+(phasesLeft!==1?'s':'')+' pending. ' : '')
-            +(gatesLeft>0  ? gatesLeft+' gate'+(gatesLeft!==1?'s':'')+' pending.' : '')
+            +(phasesLeft>0 ? phasesLeft+' phase'+(phasesLeft!==1?'s':'')+' remaining.' : '')
             +'</div>');
     }
     const checklistEl = $('#portfolioChecklist');
@@ -1256,18 +1096,16 @@
       const t15v = store.json('df_phase05_templates',{})['t15']?.values || {};
       const t16v = store.json('df_phase05_templates',{})['t16']?.values || {};
       const items = [
-        { label:'Phase 01 Empathy - T00 to T04 completed',                 done: isPhaseSubmitted('01') },
-        { label:'Phase 02 Define - T05, T06 and Gate 1 submitted',          done: isPhaseSubmitted('02') },
-        { label:'Phase 03 Ideation - T07 to T10 and Gate 2 submitted',      done: isPhaseSubmitted('03') },
-        { label:'Phase 04 Prototype - T11 to T13 and Readiness Check done', done: isPhaseSubmitted('04') },
-        { label:'Phase 05 Test - T14 to T16 and Gate 3 submitted',          done: isPhaseSubmitted('05') },
-        { label:'Supervisor Gate 1 submitted for review',                    done: g1 },
-        { label:'Supervisor Gate 2 submitted for review',                    done: g2 },
-        { label:'Supervisor Gate 3 submitted for review',                    done: g3 },
-        { label:'Final Reflection (T16) written honestly and in full',       done: !!(t16v['t16_went_well']) },
-        { label:'Improvement Plan (T15) includes proposed fixes',            done: !!(t15v['t15_common']) },
+        { label:'Phase 01 completed',                                       done: isPhaseSubmitted('01') },
+        { label:'Phase 02 completed',                                       done: isPhaseSubmitted('02') },
+        { label:'Phase 03 completed',                                       done: isPhaseSubmitted('03') },
+        { label:'Phase 04 completed',                                       done: isPhaseSubmitted('04') },
+        { label:'Phase 05 completed',                                       done: isPhaseSubmitted('05') },
+        { label:'Final pitch completed',                                     done: pitchDone },
+        { label:'Final Reflection written honestly and in full',             done: !!(t16v['t16_went_well']) },
+        { label:'Improvement Plan includes proposed fixes',                  done: !!(t15v['t15_common']) },
         { label:'All prototype and test evidence labelled and accessible',   done: isPhaseSubmitted('04') },
-        { label:'Team confirms all links and files can be opened',           done: allDone }
+        { label:'Ready for showcase / portfolio export',                     done: allDone }
       ];
       checklistEl.innerHTML = items.map(item=>
         '<li class="portfolio-checklist-item '+(item.done?'done':'')+'">'
