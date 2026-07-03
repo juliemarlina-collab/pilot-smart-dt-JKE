@@ -65,6 +65,8 @@
   border-radius:30px !important;
   padding:18px !important;
   margin:20px auto !important;
+  max-width:900px !important;
+  width:100% !important;
   display:flex !important;
   justify-content:center !important;
   align-items:center !important;
