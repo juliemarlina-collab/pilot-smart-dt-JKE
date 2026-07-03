@@ -91,11 +91,11 @@
   }
 
   const PHASE_TEMPLATES = {
-    '01': ['t00','t01','t02','t03','t04'],
-    '02': ['t05','t06','gate1'],
-    '03': ['t07','t08','t09','t10','gate02'],
-    '04': ['t11','t12','t13','ready04'],
-    '05': ['t14','t15','t16','gate05']
+    '01': ['t01','t02','t03','t04'],
+    '02': ['t05','t06'],
+    '03': ['t07','t08','t09','t10'],
+    '04': ['t11'],
+    '05': ['t12','t13','t14']
   };
 
   const quizSets = {
@@ -800,7 +800,7 @@
     $('[data-field="project"]') && ($('[data-field="project"]').textContent=store.get('df_project_name')||'Not added');
     $('#profileTasks') && ($('#profileTasks').textContent=pendingTasks());
     $('#profileEvidence') && ($('#profileEvidence').textContent=completedCount());
-    $('#profileFeedback') && ($('#profileFeedback').textContent=(isPhaseSubmitted('02')?1:0)+(isPhaseSubmitted('03')?1:0)+(isPhaseSubmitted('05')?1:0));
+    $('#profileFeedback') && ($('#profileFeedback').textContent=['01','02','03','04','05'].filter(n=>quizPassed(n)).length);
     $('#profileBadges') && ($('#profileBadges').textContent=badgeData().filter(b=>b.earned).length);
     $('#logoutBtn')?.addEventListener('click',()=>{ if(confirm('Log out from Smart DT Project on this device?')){ store.del('df_registered'); location.href='welcome.html'; } });
     $('#editProfileBtn')?.addEventListener('click',()=>enableProfileEdit());
