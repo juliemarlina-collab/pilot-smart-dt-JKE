@@ -1,0 +1,49 @@
+/* Keep the app shell and fixed navigation aligned across screen sizes. */
+:root {
+  --smartdt-shell-width: 820px;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --smartdt-shell-width: 1180px;
+  }
+}
+
+@media screen {
+  .app,
+  .frame {
+    width: 100%;
+    max-width: var(--smartdt-shell-width);
+  }
+
+  .bottom-nav {
+    max-width: var(--smartdt-shell-width) !important;
+    height: 86px !important;
+  }
+
+  .app .fab {
+    right: max(18px, calc((100% - var(--smartdt-shell-width)) / 2 + 18px));
+  }
+
+  .frame .flow-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .frame .phase-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .page.no-nav {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .frame {
+    padding-inline: max(0px, calc((min(100vw, var(--smartdt-shell-width)) - 760px) / 2));
+  }
+}
